@@ -1,0 +1,36 @@
+#
+# ~/.bashrc
+#
+
+
+# Place Environment Variables in the owsm env file (~/.config/uwsm/env)
+
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# My aliases
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
+
+# Zoxide
+alias z='zoxide'
+eval "$(zoxide init bash)"
+
+# direnv stuff
+eval "$(direnv hook bash)"
+
+# Neovim
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Trash-cli
+alias rm='echo "This is not the command you are looking for. Use \"th\" instead. To use rm append a \"\\\""; false'
+alias th='trash-put'
+
+# Paths
+export PATH=$PATH:$HOME/dev/zig-linux-x86_64-0.15.0-dev.471+369177f0b/
