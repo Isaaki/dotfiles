@@ -2,9 +2,7 @@
 # ~/.bashrc
 #
 
-
 # Place Environment Variables in the owsm env file (~/.config/uwsm/env)
-
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
