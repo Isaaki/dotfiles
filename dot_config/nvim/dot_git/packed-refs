@@ -1,6 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-86c459014fac0ba078754bcab8273ec37b8cb285 refs/remotes/origin/lazyvim
-ef045d5528b9ee61eb9ac26d3ed902fedc356621 refs/remotes/origin/main
-1d7606d14287bbdf46f725d982d60300b8dad102 refs/remotes/origin/old-config
-82b08fe75756f6c5aadcac71365c56bb04fbe80c refs/remotes/origin/test
-8991de33b2a04ed8aa62da64c116274c4243d6b2 refs/remotes/origin/wsl

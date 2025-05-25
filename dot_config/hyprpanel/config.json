@@ -43,8 +43,14 @@
   "bar.workspaces.showAllActive": false,
   "bar.layouts": {
     "*": {
-      "left": ["dashboard", "workspaces", "windowtitle"],
-      "middle": ["media"],
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
       "right": [
         "volume",
         "network",
@@ -464,5 +470,6 @@
   "theme.bar.buttons.modules.worldclock.background": "#21252b",
   "theme.bar.buttons.modules.worldclock.icon_background": "#c678dd",
   "theme.bar.buttons.modules.worldclock.icon": "#98c379",
-  "theme.bar.buttons.modules.worldclock.border": "#98c379"
+  "theme.bar.buttons.modules.worldclock.border": "#98c379",
+  "menus.dashboard.powermenu.avatar.image": "/home/isaaki/Pictures/profiles/profile-picture.jpg"
 }

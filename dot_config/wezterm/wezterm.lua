@@ -19,6 +19,8 @@ config.skip_close_confirmation_for_processes_named = {
   'btop',
   'nmtui',
   'bluetui',
+  'lf',
+  'chezmoi'
 }
 
 ----------------
