@@ -11,6 +11,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# Nvm (Node Version Manager)
+source /usr/share/nvm/init-nvm.sh
+
 # My aliases
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
