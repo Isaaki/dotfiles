@@ -37,7 +37,7 @@
   "theme.bar.border.location": "none",
   "bar.autoHide": "never",
   "theme.bar.outer_spacing": "0.2em",
-  "bar.launcher.autoDetectIcon": false,
+  "bar.launcher.autoDetectIcon": true,
   "theme.bar.buttons.dashboard.enableBorder": false,
   "bar.workspaces.numbered_active_indicator": "underline",
   "bar.workspaces.showAllActive": false,
@@ -64,8 +64,8 @@
   },
   "theme.bar.menus.opacity": 98,
   "wallpaper.enable": false,
-  "bar.clock.showIcon": false,
-  "theme.bar.buttons.clock.spacing": "0",
+  "bar.clock.showIcon": true,
+  "theme.bar.buttons.clock.spacing": "0.5em",
   "bar.media.truncation_size": 30,
   "theme.bar.buttons.media.enableBorder": false,
   "bar.network.label": true,
@@ -471,5 +471,6 @@
   "theme.bar.buttons.modules.worldclock.icon_background": "#c678dd",
   "theme.bar.buttons.modules.worldclock.icon": "#98c379",
   "theme.bar.buttons.modules.worldclock.border": "#98c379",
-  "menus.dashboard.powermenu.avatar.image": "/home/isaaki/Pictures/profiles/profile-picture.jpg"
+  "menus.dashboard.powermenu.avatar.image": "/home/isaaki/Pictures/profiles/profile-picture.jpg",
+  "bar.volume.rightClick": "wezterm start --class 'pulsemixer' -- pulsemixer"
 }
