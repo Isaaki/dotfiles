@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 3
+
 WALLPAPER_DIR="$HOME/Pictures/wallpapers/space/"
 CURRENT_WALL=$(hyprctl hyprpaper listloaded)
 
