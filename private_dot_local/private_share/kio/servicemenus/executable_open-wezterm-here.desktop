@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Actions=openInWezTerm;
+Icon=utilities-terminal
+
+[Desktop Action openInWezTerm]
+Name=Open in WezTerm
+Icon=org.wezfurlong.wezterm
+Exec=wezterm start --cwd %f
