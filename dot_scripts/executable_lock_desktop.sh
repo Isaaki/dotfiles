@@ -1,4 +1,4 @@
 #!/bin/sh
 
-playerctl -a pause
+# playerctl -a pause
 loginctl lock-session
