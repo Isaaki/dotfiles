@@ -10,5 +10,5 @@ if [[ -z "$CLIP_CONTENT" ]]; then
 fi
 
 # Launch mpv with clipboard content
-notify-send "Starting mpv Url: $CLIP_CONTENT"
+notify-send "Starting mpv" "$CLIP_CONTENT"
 mpv "$CLIP_CONTENT"
