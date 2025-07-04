@@ -473,5 +473,8 @@
   "theme.bar.buttons.modules.worldclock.border": "#98c379",
   "menus.dashboard.powermenu.avatar.image": "/home/isaaki/Pictures/profiles/profile-picture.jpg",
   "bar.volume.rightClick": "wezterm start --class 'pulsemixer' -- pulsemixer",
-  "bar.bluetooth.rightClick": "wezterm start --class 'bluetui' -- bluetui"
+  "bar.bluetooth.rightClick": "wezterm start --class 'bluetui' -- bluetui",
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }
