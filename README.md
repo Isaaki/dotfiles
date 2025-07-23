@@ -28,3 +28,15 @@ Then use this one line command:
 ```
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply isaaki
 ```
+
+### SSH
+Start the ssh-agent with
+```
+eval "$(ssh-agent -s)"
+```
+Then add key to ssh-agent with
+```
+ssh-add ~/.ssh/id_ed25519
+```
+
+On windows follow this [Github docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows#adding-your-ssh-key-to-the-ssh-agent)
