@@ -34,4 +34,4 @@ alias rm='echo "This is not the command you are looking for. Use \"th\" instead.
 alias th='trash-put'
 
 # Paths
-export PATH=$PATH:$HOME/dev/zig-linux-x86_64-0.15.0-dev.471+369177f0b/
+export PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.0-dev.1380+e98aeeb73/
