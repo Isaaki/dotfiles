@@ -35,3 +35,4 @@ alias th='trash-put'
 
 # Paths
 export PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.0-dev.1380+e98aeeb73/
+# export PATH=$PATH:$HOME/dev/zls-0.15.0-dev/zig-out/bin/
