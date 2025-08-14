@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Dependencies: tmux, zoxide, fzf
+for dep in tmux zoxide fzf; do
+    command -v "$dep" >/dev/null || {
+        echo "Missing dependency: $dep" >&2
+        exit 1
+    }
+done
+
+# Choose directory: interactive if no arg
+if [ -n "$1" ]; then
+    dir_path=$(zoxide query "$1" 2>/dev/null) || exit 1
+else
+    dir_path=$(zoxide query -i) || exit 1
+fi
+
+[ -n "$dir_path" ] || exit 1
+
+# Session name = basename of path
+dir_basename=$(basename "$dir_path")
+
+# Create session if missing
+if ! tmux has-session -t "$dir_basename" 2>/dev/null; then
+    tmux new-session -d -s "$dir_basename" -c "$dir_path"
+fi
+
+# Switch/attach depending on whether we're in tmux
+if [ -z "$TMUX" ]; then
+    exec tmux attach-session -t "$dir_basename"
+else
+    tmux switch-client -t "$dir_basename"
+fi

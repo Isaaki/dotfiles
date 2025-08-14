@@ -34,5 +34,9 @@ alias rm='echo "This is not the command you are looking for. Use \"th\" instead.
 alias th='trash-put'
 
 # Paths
-export PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.0-dev.1380+e98aeeb73/
-# export PATH=$PATH:$HOME/dev/zls-0.15.0-dev/zig-out/bin/
+PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.0-dev.1380+e98aeeb73/
+PATH=$PATH:/home/isaaki/.local/bin
+# PATH=$PATH:$HOME/dev/zls-0.15.0-dev/zig-out/bin/
+
+# Tmux-Zoxide-Sessionizer
+bind '"\C-f":"tz\n"'

@@ -3,55 +3,6 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 ------------
--- PLUGIN --
-------------
-
-local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-resurrect.state_manager.periodic_save()
-
--- loads the state whenever I create a new workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, path, label)
-	local workspace_state = resurrect.workspace_state
-
-	workspace_state.restore_workspace(resurrect.state_manager.load_state(label, "workspace"), {
-		window = window,
-		relative = true,
-		restore_text = true,
-		restore_tabs = true,
-
-		resize_window = false,
-		on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-	})
-end)
-
--- Saves the state whenever I select a workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function(window, path, label)
-	local workspace_state = resurrect.workspace_state
-	resurrect.state_manager.save_state(workspace_state.get_workspace_state())
-end)
-
-wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function(window, path, label)
-	wezterm.log_info(window)
-	local workspace_state = resurrect.workspace_state
-	resurrect.state_manager.save_state(workspace_state.get_workspace_state())
-	resurrect.state_manager.write_current_state(label, "workspace")
-end)
-
-wezterm.on("resurrect.error", function(err)
-	wezterm.log_error("ERROR!")
-	wezterm.gui.gui_windows()[1]:toast_notification("resurrect", err, nil, 3000)
-end)
-
-workspace_switcher.apply_to_config(config)
-
-workspace_switcher.workspace_formatter = function(label)
-	return wezterm.format({
-		{ Attribute = { Italic = true } },
-		{ Text = "󱂬 : " .. label },
-	})
-end
-------------
 -- CONFIG --
 ------------
 
@@ -81,184 +32,179 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.color_scheme = "Tokyo Night"
 config.font = wezterm.font("ComicCode Nerd Font")
+config.font_size = 13
 config.window_background_opacity = 0.8
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+
+config.window_padding = {
+  top = 0,
+	bottom = 0,
+  right = 0,
+  left = 0,
+}
+
 ------------------
 -- WINDOW TITLE --
 ------------------
 
-wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
-	local zoomed = ""
-	if tab.active_pane.is_zoomed then
-		zoomed = "[Z] "
-	end
-
-	local index = ""
-	if #tabs > 1 then
-		index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
-	end
-
-	if pane.foreground_process_name == "/usr/bin/btop" then
-		return "  Btop"
-	end
-
-	if pane.foreground_process_name == "/usr/bin/bluetui" then
-		return "󰂯  Bluetooth TUI"
-	end
-
-	if pane.foreground_process_name == "/usr/bin/nmtui" then
-		return "󰤨  Network Manager TUI"
-	end
-
-	-- return zoomed .. index .. tab.active_pane.title .. " | " .. pane.foreground_process_name
-	return zoomed .. index .. tab.active_pane.title
-end)
+-- wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+-- 	local zoomed = ""
+-- 	if tab.active_pane.is_zoomed then
+-- 		zoomed = "[Z] "
+-- 	end
+--
+-- 	local index = ""
+-- 	if #tabs > 1 then
+-- 		index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
+-- 	end
+--
+-- 	if pane.foreground_process_name == "/usr/bin/btop" then
+-- 		return "  Btop"
+-- 	end
+--
+-- 	if pane.foreground_process_name == "/usr/bin/bluetui" then
+-- 		return "󰂯  Bluetooth TUI"
+-- 	end
+--
+-- 	if pane.foreground_process_name == "/usr/bin/nmtui" then
+-- 		return "󰤨  Network Manager TUI"
+-- 	end
+--
+-- 	-- return zoomed .. index .. tab.active_pane.title .. " | " .. pane.foreground_process_name
+-- 	return zoomed .. index .. tab.active_pane.title
+-- end)
 
 ------------
 -- KEYMAP --
 ------------
 config.disable_default_key_bindings = true
 
-config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
+-- config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 
 config.keys = {
-	-- MLFlexer/resurrect.wezterm
-	{
-		key = "w",
-		mods = "LEADER",
-		action = wezterm.action_callback(function(win, pane)
-			resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
-		end),
-	},
-
-	-- MLFlexer/smart_workspace_switcher.wezterm
-	{ key = "s", mods = "LEADER", action = workspace_switcher.switch_workspace() },
-	{ key = "S", mods = "LEADER", action = workspace_switcher.switch_to_prev_workspace() },
-
-	{ key = "q", mods = "LEADER", action = wezterm.action.QuitApplication },
-	-- DEFAULT KEYS --
-
 	{ key = "C", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("ClipboardAndPrimarySelection") },
 	{ key = "V", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
-	{ key = "Copy", mods = "NONE", action = act.CopyTo("ClipboardAndPrimarySelection") },
-	{ key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
-	{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("PrimarySelection") },
-	{ key = "Insert", mods = "CTRL", action = act.CopyTo("PrimarySelection") },
-
-	{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
-	{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
-	{ key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
-	{ key = '"', mods = "ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = '"', mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "'", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "%", mods = "ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "%", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "5", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-
-	{ key = ")", mods = "CTRL", action = act.ResetFontSize },
-	{ key = ")", mods = "SHIFT|CTRL", action = act.ResetFontSize },
-	{ key = "0", mods = "CTRL", action = act.ResetFontSize },
-	{ key = "0", mods = "SHIFT|CTRL", action = act.ResetFontSize },
-	{ key = "0", mods = "SUPER", action = act.ResetFontSize },
-
+	-- { key = "Copy", mods = "NONE", action = act.CopyTo("ClipboardAndPrimarySelection") },
+	-- { key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
+	-- { key = "Insert", mods = "SHIFT", action = act.PasteFrom("PrimarySelection") },
+	-- { key = "Insert", mods = "CTRL", action = act.CopyTo("PrimarySelection") },
+	--
+	-- { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
+	-- { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+	-- { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
+	-- { key = '"', mods = "ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	-- { key = '"', mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	-- { key = "'", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	-- { key = "%", mods = "ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	-- { key = "%", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	-- { key = "5", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	--
+	-- { key = ")", mods = "CTRL", action = act.ResetFontSize },
+	-- { key = ")", mods = "SHIFT|CTRL", action = act.ResetFontSize },
+	-- { key = "0", mods = "CTRL", action = act.ResetFontSize },
+	-- { key = "0", mods = "SHIFT|CTRL", action = act.ResetFontSize },
+	-- { key = "0", mods = "SUPER", action = act.ResetFontSize },
+	--
 	{ key = "+", mods = "CTRL", action = act.IncreaseFontSize },
 	{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
 	{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
 	{ key = "=", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
-
+	--
 	{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 	{ key = "-", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
 	{ key = "_", mods = "CTRL", action = act.DecreaseFontSize },
 	{ key = "_", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
-
-	{ key = "!", mods = "CTRL", action = act.ActivateTab(0) },
-	{ key = "!", mods = "SHIFT|CTRL", action = act.ActivateTab(0) },
-	{ key = "1", mods = "SHIFT|CTRL", action = act.ActivateTab(0) },
-	{ key = "@", mods = "CTRL", action = act.ActivateTab(1) },
-	{ key = "@", mods = "SHIFT|CTRL", action = act.ActivateTab(1) },
-	{ key = "2", mods = "SHIFT|CTRL", action = act.ActivateTab(1) },
-	{ key = "#", mods = "CTRL", action = act.ActivateTab(2) },
-	{ key = "#", mods = "SHIFT|CTRL", action = act.ActivateTab(2) },
-	{ key = "$", mods = "CTRL", action = act.ActivateTab(3) },
-	{ key = "$", mods = "SHIFT|CTRL", action = act.ActivateTab(3) },
-	{ key = "4", mods = "SHIFT|CTRL", action = act.ActivateTab(3) },
-	{ key = "%", mods = "CTRL", action = act.ActivateTab(4) },
-	{ key = "%", mods = "SHIFT|CTRL", action = act.ActivateTab(4) },
-	{ key = "5", mods = "SHIFT|CTRL", action = act.ActivateTab(4) },
-	{ key = "^", mods = "CTRL", action = act.ActivateTab(5) },
-	{ key = "^", mods = "SHIFT|CTRL", action = act.ActivateTab(5) },
-	{ key = "6", mods = "SHIFT|CTRL", action = act.ActivateTab(5) },
-	{ key = "&", mods = "CTRL", action = act.ActivateTab(6) },
-	{ key = "&", mods = "SHIFT|CTRL", action = act.ActivateTab(6) },
-	{ key = "7", mods = "SHIFT|CTRL", action = act.ActivateTab(6) },
-	{ key = "*", mods = "CTRL", action = act.ActivateTab(7) },
-	{ key = "*", mods = "SHIFT|CTRL", action = act.ActivateTab(7) },
-	{ key = "8", mods = "SHIFT|CTRL", action = act.ActivateTab(7) },
-	{ key = "(", mods = "CTRL", action = act.ActivateTab(-1) },
-	{ key = "(", mods = "SHIFT|CTRL", action = act.ActivateTab(-1) },
-	{ key = "9", mods = "SHIFT|CTRL", action = act.ActivateTab(-1) },
-
-	{ key = "F", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-	{ key = "F", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-
-	{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-	{ key = "K", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-
-	-- { key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
-	-- { key = "L", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
-
-	-- { key = 'P', mods = 'CTRL', action = act.ActivateCommandPalette },
-	-- { key = 'P', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
-
-	{ key = "R", mods = "CTRL", action = act.ReloadConfiguration },
-	{ key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
-
-	{ key = "T", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "Q", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-	{ key = "Q", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-
-	-- { key = 'U', mods = 'CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-	-- { key = 'U', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-
-	{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
-	{ key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
-
-	{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
-	{ key = "Z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
-
-	{ key = "f", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-
-	{ key = "k", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-
-	-- { key = "l", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
-
-	-- { key = 'p', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
-
-	{ key = "r", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
-	{ key = "r", mods = "SUPER", action = act.ReloadConfiguration },
-
-	-- { key = 'u', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-
-	{ key = "q", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-
+	--
+	-- { key = "!", mods = "CTRL", action = act.ActivateTab(0) },
+	-- { key = "!", mods = "SHIFT|CTRL", action = act.ActivateTab(0) },
+	-- { key = "1", mods = "SHIFT|CTRL", action = act.ActivateTab(0) },
+	-- { key = "@", mods = "CTRL", action = act.ActivateTab(1) },
+	-- { key = "@", mods = "SHIFT|CTRL", action = act.ActivateTab(1) },
+	-- { key = "2", mods = "SHIFT|CTRL", action = act.ActivateTab(1) },
+	-- { key = "#", mods = "CTRL", action = act.ActivateTab(2) },
+	-- { key = "#", mods = "SHIFT|CTRL", action = act.ActivateTab(2) },
+	-- { key = "$", mods = "CTRL", action = act.ActivateTab(3) },
+	-- { key = "$", mods = "SHIFT|CTRL", action = act.ActivateTab(3) },
+	-- { key = "4", mods = "SHIFT|CTRL", action = act.ActivateTab(3) },
+	-- { key = "%", mods = "CTRL", action = act.ActivateTab(4) },
+	-- { key = "%", mods = "SHIFT|CTRL", action = act.ActivateTab(4) },
+	-- { key = "5", mods = "SHIFT|CTRL", action = act.ActivateTab(4) },
+	-- { key = "^", mods = "CTRL", action = act.ActivateTab(5) },
+	-- { key = "^", mods = "SHIFT|CTRL", action = act.ActivateTab(5) },
+	-- { key = "6", mods = "SHIFT|CTRL", action = act.ActivateTab(5) },
+	-- { key = "&", mods = "CTRL", action = act.ActivateTab(6) },
+	-- { key = "&", mods = "SHIFT|CTRL", action = act.ActivateTab(6) },
+	-- { key = "7", mods = "SHIFT|CTRL", action = act.ActivateTab(6) },
+	-- { key = "*", mods = "CTRL", action = act.ActivateTab(7) },
+	-- { key = "*", mods = "SHIFT|CTRL", action = act.ActivateTab(7) },
+	-- { key = "8", mods = "SHIFT|CTRL", action = act.ActivateTab(7) },
+	-- { key = "(", mods = "CTRL", action = act.ActivateTab(-1) },
+	-- { key = "(", mods = "SHIFT|CTRL", action = act.ActivateTab(-1) },
+	-- { key = "9", mods = "SHIFT|CTRL", action = act.ActivateTab(-1) },
+	--
+	-- { key = "F", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
+	-- { key = "F", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
+	--
+	-- { key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
+	-- { key = "K", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
+	--
+	-- -- { key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
+	-- -- { key = "L", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
+	--
+	-- -- { key = 'P', mods = 'CTRL', action = act.ActivateCommandPalette },
+	-- -- { key = 'P', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
+	--
+	-- { key = "R", mods = "CTRL", action = act.ReloadConfiguration },
+	-- { key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
+	--
+	-- { key = "T", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
+	-- { key = "Q", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+	-- { key = "Q", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+	--
+	-- -- { key = 'U', mods = 'CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
+	-- -- { key = 'U', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
+	--
+	-- { key = "X", mods = "CTRL", action = act.ActivateCopyMode },
+	-- { key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
+	--
+	-- { key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
+	-- { key = "Z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
+	--
+	-- { key = "f", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
+	--
+	-- { key = "k", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
+	--
+	-- -- { key = "l", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
+	--
+	-- -- { key = 'p', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
+	--
+	-- { key = "r", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
+	-- { key = "r", mods = "SUPER", action = act.ReloadConfiguration },
+	--
+	-- -- { key = 'u', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
+	--
+	-- { key = "q", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+	--
 	{ key = "x", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
-
-	{ key = "z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
-
-	{ key = "phys:Space", mods = "SHIFT|CTRL", action = act.QuickSelect },
-
-	{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
-	{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
-
-	{ key = "H", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Left") },
-	{ key = "H", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Left", 1 }) },
-	{ key = "L", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Right") },
-	{ key = "L", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Right", 1 }) },
-	{ key = "K", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Up") },
-	{ key = "K", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Up", 1 }) },
-	{ key = "J", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Down") },
-	{ key = "J", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Down", 1 }) },
+	--
+	-- { key = "z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
+	--
+	-- { key = "phys:Space", mods = "SHIFT|CTRL", action = act.QuickSelect },
+	--
+	-- { key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
+	-- { key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
+	--
+	-- { key = "H", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Left") },
+	-- { key = "H", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Left", 1 }) },
+	-- { key = "L", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Right") },
+	-- { key = "L", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Right", 1 }) },
+	-- { key = "K", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Up") },
+	-- { key = "K", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Up", 1 }) },
+	-- { key = "J", mods = "SHIFT|CTRL", action = act.ActivatePaneDirection("Down") },
+	-- { key = "J", mods = "SHIFT|ALT|CTRL", action = act.AdjustPaneSize({ "Down", 1 }) },
 }
 
 config.key_tables = {
@@ -347,7 +293,5 @@ config.key_tables = {
 		{ key = "DownArrow", mods = "NONE", action = act.CopyMode("NextMatch") },
 	},
 }
-
--- wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
 
 return config
