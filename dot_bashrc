@@ -39,4 +39,5 @@ PATH=$PATH:/home/isaaki/.local/bin
 # PATH=$PATH:$HOME/dev/zls-0.15.0-dev/zig-out/bin/
 
 # Tmux-Zoxide-Sessionizer
+export _ZO_FZF_OPTS="--height=100%"
 bind '"\C-f":"tz\n"'

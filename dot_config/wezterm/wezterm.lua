@@ -40,42 +40,42 @@ config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
 config.window_padding = {
-  top = 0,
-	bottom = 0,
-  right = 0,
-  left = 0,
+  top = 5,
+	bottom = 5,
+  right = 5,
+  left = 5,
 }
 
 ------------------
 -- WINDOW TITLE --
 ------------------
 
--- wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
--- 	local zoomed = ""
--- 	if tab.active_pane.is_zoomed then
--- 		zoomed = "[Z] "
--- 	end
---
--- 	local index = ""
--- 	if #tabs > 1 then
--- 		index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
--- 	end
---
--- 	if pane.foreground_process_name == "/usr/bin/btop" then
--- 		return "  Btop"
--- 	end
---
--- 	if pane.foreground_process_name == "/usr/bin/bluetui" then
--- 		return "󰂯  Bluetooth TUI"
--- 	end
---
--- 	if pane.foreground_process_name == "/usr/bin/nmtui" then
--- 		return "󰤨  Network Manager TUI"
--- 	end
---
--- 	-- return zoomed .. index .. tab.active_pane.title .. " | " .. pane.foreground_process_name
--- 	return zoomed .. index .. tab.active_pane.title
--- end)
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+	local zoomed = ""
+	if tab.active_pane.is_zoomed then
+		zoomed = "[Z] "
+	end
+
+	local index = ""
+	if #tabs > 1 then
+		index = string.format("[%d/%d] ", tab.tab_index + 1, #tabs)
+	end
+
+	if pane.foreground_process_name == "/usr/bin/btop" then
+		return "  Btop"
+	end
+
+	if pane.foreground_process_name == "/usr/bin/bluetui" then
+		return "󰂯  Bluetooth TUI"
+	end
+
+	if pane.foreground_process_name == "/usr/bin/nmtui" then
+		return "󰤨  Network Manager TUI"
+	end
+
+	-- return zoomed .. index .. tab.active_pane.title .. " | " .. pane.foreground_process_name
+	return zoomed .. index .. tab.active_pane.title
+end)
 
 ------------
 -- KEYMAP --
