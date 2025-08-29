@@ -1,0 +1,58 @@
+# error warning use my color 
+theme = "base16_terminal"
+
+[editor]
+# Highlight all lines with a cursor
+cursorline = true
+cursorcolumn = false
+
+line-number = "relative"
+bufferline = "multiple"
+
+
+# Show a ruler at column 120 + 1 ruler   eq terminal 125x44  = 120 cols x 42 for src 
+rulers = [120]
+
+color-modes = true
+mouse = true
+auto-format =false
+middle-click-paste= false
+scrolloff = 20
+continue-comments = false
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.statusline]
+left = ["mode","spinner"]
+center = ["file-name","file-modification-indicator"]
+# # right = ["version-control", "diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+# right = [ "diagnostics", "position", "total-line-numbers"]
+right = ["diagnostics", "separator", "selections", "separator", "position", "position-percentage", "spacer" ]
+separator = "│"
+
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[keys.normal]
+"V" = ["extend_line_below", "select_mode"]
+"0" = ["goto_line_start"]
+
+# Buffer
+"A-h" = ["goto_previous_buffer"]
+"A-l" = ["goto_next_buffer"]
+
+[keys.normal.space]
+"q" = ":buffer-close"
+"o" = {"f" = ":format"}
+
+[keys.insert]
+"j" = { "k" = "normal_mode" } # Maps `jk` to exit insert mode
+
