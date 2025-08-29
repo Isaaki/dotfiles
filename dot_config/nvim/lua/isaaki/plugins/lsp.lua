@@ -243,7 +243,7 @@ return {
 
 		-- Custom zls version so that it is matching zig version
 		require("lspconfig").zls.setup({
-			cmd = { "/home/isaaki/dev/zls-0.15.0-dev/zig-out/bin/zls" },
+			cmd = { "/home/isaaki/dev/zls-0.15.0/zls" },
 		})
 	end,
 }

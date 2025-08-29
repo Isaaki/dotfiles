@@ -33,10 +33,12 @@ export VISUAL=nvim
 alias rm='echo "This is not the command you are looking for. Use \"th\" instead. To use rm append a \"\\\""; false'
 alias th='trash-put'
 
+alias hx='helix'
+
 # Paths
-PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.0-dev.1380+e98aeeb73/
+PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.1/
 PATH=$PATH:/home/isaaki/.local/bin
-# PATH=$PATH:$HOME/dev/zls-0.15.0-dev/zig-out/bin/
+PATH=$PATH:$HOME/dev/zls-0.15.0
 
 # Tmux-Zoxide-Sessionizer
 export _ZO_FZF_OPTS="--height=100%"
