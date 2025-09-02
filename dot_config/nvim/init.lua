@@ -47,7 +47,7 @@ require("lazy").setup({
 		require("isaaki/plugins/trouble"),
 		require("isaaki/plugins/toggleterm"),
 		require("isaaki/plugins/gitsigns"),
-		require("isaaki/plugins/auto-session"),
+		-- require("isaaki/plugins/auto-session"),
 		require("isaaki/plugins/flash"),
 		require("isaaki/plugins/lazydev"),
 		require("isaaki/plugins/luvit-meta"),
