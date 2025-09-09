@@ -1,18 +1,13 @@
 ##### Keyboard layout (XKB)
-For wayland extract the "alt-nord-linux-hyprland.zip" to $HOME/.config/xkb/
+For wayland move "alt-nord" file to to $HOME/.config/xkb/symbols/
 And add this to the input section `kb_layout = alt-nord,us`
 Then restart or log out it should be available
 
 Folder tree should look like this
 ```
 $HOME/.config/xkb/
-├── compat
-├── keycodes
-├── rules
-│   └── evdev.xml
 ├── symbols
-│   └── us
-└── types
+│   └── alt-nord
 ```
 
 **Links**
