@@ -2,10 +2,10 @@
 # ~/.bashrc
 #
 
-# Place Environment Variables in the owsm env file (~/.config/uwsm/env)
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# Place Environment Variables in the owsm env file (~/.config/uwsm/env)
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -34,6 +34,7 @@ alias rm='echo "This is not the command you are looking for. Use \"th\" instead.
 alias th='trash-put'
 
 alias hx='helix'
+alias zed='env -u WAYLAND_DISPLAY zeditor'
 
 # Paths
 PATH=$PATH:$HOME/dev/zig-x86_64-linux-0.15.1/
