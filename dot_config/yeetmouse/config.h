@@ -1,0 +1,18 @@
+#define BUFFER_SIZE 16
+#define SENSITIVITY 1
+#define SENSITIVITY_Y 1
+#define OUTPUT_CAP 0
+#define INPUT_CAP 0
+#define OFFSET 0
+#define ACCELERATION 0.212
+#define EXPONENT 2
+#define MIDPOINT 15
+#define MOTIVITY 1.5
+#define PRESCALE 1
+#define ACCELERATION_MODE AccelMode_Natural
+#define USE_SMOOTHING 0
+#define ROTATION_ANGLE 0
+#define ANGLE_SNAPPING_THRESHOLD 0
+#define ANGLE_SNAPPING_ANGLE 0
+#define LUT_SIZE 0
+#define LUT_DATA 
