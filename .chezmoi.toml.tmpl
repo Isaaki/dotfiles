@@ -1,5 +1,13 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
 encryption = "age"
 [age]
     identity = "~/.config/chezmoi/key.txt"
     recipient = "age1upl0z78hc7aux82u33cpfrthl3ukssxn09lcxpf5rvkdtvle339sh7mkzs"
 
+[data]
+    email = "xisaaki@proton.me"
+    osid = {{ $osid | quote }}
