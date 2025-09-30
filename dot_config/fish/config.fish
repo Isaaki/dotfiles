@@ -2,9 +2,14 @@ source ~/.config/fish/cachyos-config.fish
 
 # overwrite greeting
 # potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
+function fish_greeting
+end
+
+# Start keychain for ssh keys
+if type -q keychain
+    keychain -q id_ed25519
+    source (keychain -q --eval id_ed25519 | psub)
+end
 
 set -gx EDITOR nvim
 set -gx VISUAL zeditor
