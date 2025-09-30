@@ -7,6 +7,6 @@ if pgrep -x btop > /dev/null; then
 else
   # If it's not running, launch it in kitty
   # kitty --class btop btop
-  wezterm start --class "btop" -- btop
+  alacritty --class "btop" -e btop
 fi
 
