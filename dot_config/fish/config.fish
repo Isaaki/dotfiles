@@ -34,9 +34,11 @@ if test -d ~/.local/bin
     end
 end
 
-alias z="zoxide"
-zoxide init fish | source
+if type -q zoxide
+  alias z="zoxide"
+  zoxide init fish | source
 
 # Tmux-Zoxide-Sessionizer
-set -gx _ZO_FZF_OPTS "--height=100%"
-bind ctrl-f 'tz'
+  set -gx _ZO_FZF_OPTS "--height=100%"
+  bind ctrl-f 'tz'
+end
