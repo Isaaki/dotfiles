@@ -11,8 +11,15 @@ if type -q keychain
     source (keychain -q --eval id_ed25519 | psub)
 end
 
-set -gx EDITOR nvim
-set -gx VISUAL zeditor
+if type -q nvim
+  set -gx EDITOR nvim
+else
+  set -gx EDITOR vim
+end
+
+if type -q zeditor
+  set -gx VISUAL zeditor
+end
 
 # Trash-cli https://github.com/andreafrancia/trash-cli
 if status is-interactive
