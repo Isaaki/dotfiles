@@ -4,6 +4,51 @@ chezmoi update
 ```
 
 ## My packages
+- base-devel
+- greetd
+- greetd-tuigreet
+- mason
+- cpio
+- neovim
+- chezmoi
+- uwsm
+- gnome-keyring
+- polkit-gnome
+- seahorse
+- mpv
+- alacritty
+- btop
+- file-roller
+- kate
+- tealdeer
+- trash-cli
+- obsidian
+- uv
+- lazygit
+- thunar
+- thunar-archive-plugin
+- gvfs
+- tmux
+- youtube-music
+- plexamp
+- stremio
+- zed
+- zoxide
+- qt5ct
+- qt6ct
+- kvantum
+- breeze-icons
+- adw-gtk-theme
+- qimgv-git
+
+### Pacman Install
+```bash
+sudo pacman -S --needed base-devel greetd greetd-tuigreet mason cpio neovim chezmoi uwsm gnome-keyring polkit-gnome seahorse mpv alacritty btop file-roller kate tealdeer trash-cli obsidian uv lazygit thunar thunar-archive-plugin gvfs tmux zed zoxide qt5ct qt6ct kvantum breeze-icons adw-gtk-theme
+```
+### Aur Install
+```bash
+paru -S --needed youtube-music plexamp-appimage stremio qimgv-git
+```
 
 ## How to add to new system
 ### Package manager (recommended)
