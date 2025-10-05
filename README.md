@@ -24,7 +24,9 @@
   - lazygit
   - thunar
   - thunar-archive-plugin
+  - thunar-shares-plugin
   - gvfs
+  - gvfs-smb
   - tmux
   - youtube-music
   - plexamp
