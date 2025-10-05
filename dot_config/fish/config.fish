@@ -15,7 +15,9 @@ set -gx EDITOR nvim
 set -gx VISUAL zeditor
 
 # Trash-cli https://github.com/andreafrancia/trash-cli
-alias rm='echo "This is not the command you are looking for. Use \'th\' instead. To use rm append a \'\\\' "; false'
+if status is-interactive
+  alias rm='echo "This is not the command you are looking for. Use \'th\' instead. To use rm append a \'\\\' "; false'
+end
 alias th="trash-put"
 
 # Add .local/bin to PATH
