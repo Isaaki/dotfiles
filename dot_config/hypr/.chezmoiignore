@@ -1,6 +1,0 @@
-{{- if eq .chezmoi.osRelease.id "cachyos" -}}
-*.conf
-{{- else if eq .chezmoi.osRelease.id "arch" -}}
-hyprland_config/user-config.conf
-{{- end }}
-
