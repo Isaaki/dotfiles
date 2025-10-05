@@ -1,53 +1,57 @@
-## Update config
-```
-chezmoi update
-```
+<details><summary id="dependencies">My Packages</summary>
+  
+  - base-devel
+  - greetd
+  - greetd-tuigreet
+  - mason
+  - cpio
+  - neovim
+  - chezmoi
+  - uwsm
+  - gnome-keyring
+  - polkit-gnome
+  - seahorse
+  - mpv
+  - alacritty
+  - btop
+  - file-roller
+  - kate
+  - tealdeer
+  - trash-cli
+  - obsidian
+  - uv
+  - lazygit
+  - thunar
+  - thunar-archive-plugin
+  - gvfs
+  - tmux
+  - youtube-music
+  - plexamp
+  - stremio
+  - zed
+  - zoxide
+  - qt5ct
+  - qt6ct
+  - kvantum
+  - breeze-icons
+  - adw-gtk-theme
+  - qimgv-git
 
-## My packages
-- base-devel
-- greetd
-- greetd-tuigreet
-- mason
-- cpio
-- neovim
-- chezmoi
-- uwsm
-- gnome-keyring
-- polkit-gnome
-- seahorse
-- mpv
-- alacritty
-- btop
-- file-roller
-- kate
-- tealdeer
-- trash-cli
-- obsidian
-- uv
-- lazygit
-- thunar
-- thunar-archive-plugin
-- gvfs
-- tmux
-- youtube-music
-- plexamp
-- stremio
-- zed
-- zoxide
-- qt5ct
-- qt6ct
-- kvantum
-- breeze-icons
-- adw-gtk-theme
-- qimgv-git
-
-### Pacman Install
+Pacman
 ```bash
 sudo pacman -S --needed base-devel greetd greetd-tuigreet mason cpio neovim chezmoi uwsm gnome-keyring polkit-gnome seahorse mpv alacritty btop file-roller kate tealdeer trash-cli obsidian uv lazygit thunar thunar-archive-plugin gvfs tmux zed zoxide qt5ct qt6ct kvantum breeze-icons adw-gtk-theme
 ```
-### Aur Install
+
+AUR
 ```bash
-paru -S --needed youtube-music plexamp-appimage stremio qimgv-git
+paru -S --needed youtube-music plexamp-appimage stremio qimgv-git`
+```
+
+</details>
+
+## Update config
+```
+chezmoi update
 ```
 
 ## How to add to new system
