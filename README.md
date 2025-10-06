@@ -19,6 +19,8 @@
   - kate
   - tealdeer
   - trash-cli
+  - waybar
+  - wlogout
   - obsidian
   - uv
   - lazygit
@@ -43,12 +45,12 @@
 
 Pacman
 ```bash
-sudo pacman -S --needed base-devel greetd greetd-tuigreet mason cpio neovim fzf chezmoi uwsm gnome-keyring polkit-gnome seahorse mpv alacritty btop file-roller kate tealdeer trash-cli obsidian uv lazygit thunar thunar-archive-plugin thunar-shares-plugin gvfs gvfs-smb tmux zed zoxide qt5ct qt6ct kvantum breeze-icons adw-gtk-theme ttf-jetbrains-mono-nerd
+sudo pacman -S --needed base-devel greetd greetd-tuigreet mason cpio neovim fzf chezmoi uwsm gnome-keyring polkit-gnome seahorse mpv alacritty btop file-roller kate tealdeer trash-cli waybar obsidian uv lazygit thunar thunar-archive-plugin thunar-shares-plugin gvfs gvfs-smb tmux zed zoxide qt5ct qt6ct kvantum breeze-icons adw-gtk-theme ttf-jetbrains-mono-nerd
 ```
 
 AUR
 ```bash
-paru -S --needed youtube-music plexamp-appimage stremio qimgv-git`
+paru -S --needed youtube-music plexamp-appimage stremio qimgv-git wlogout
 ```
 
 </details>
