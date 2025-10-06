@@ -1,9 +1,11 @@
-export XCURSOR_SIZE=24
+export XCURSOR_THEME="BreezeX-Light"
+export XCURSOR_SIZE=28
+
 export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export NVD_BACKEND=direct
 export QT_QPA_PLATFORMTHEME=qt6ct
 export SDL_VIDEODRIVER=wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export TERMINAL=wezterm
+export TERMINAL=alacritty
 export TERM=xterm-256color

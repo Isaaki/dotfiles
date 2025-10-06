@@ -1,4 +1,3 @@
-#!/bin/sh
-
-# playerctl -a pause
-hyprlock
+#!/bin/bash
+playerctl -a pause
+pidof hyprlock || hyprlock
