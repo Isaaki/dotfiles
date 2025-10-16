@@ -1,55 +1,57 @@
 import QtQuick
-import Quickshell
+import QtQuick.Layouts
 import Quickshell.Hyprland // for PanelWindow
 
-Row {
-    id: workspacesRow
-
-    property string textColor: "#aaa"
-    property string backgroundColor: bar.color
+RowLayout {
+    id: row
 
     anchors {
         left: parent.left
         verticalCenter: parent.verticalCenter
-        leftMargin: 0
+        // fill: parent
     }
 
-    spacing: 2
+    spacing: 0
 
     Repeater {
+        id: workspaceRepeater
         model: Hyprland.workspaces
 
+        Layout.fillHeight: true
+        Layout.maximumWidth: 40
+
         Rectangle {
-            anchors {
-                verticalCenter: parent.verticalCenter
-            }
+            id: workspaceButton
 
-            width: 24
-            height: 32
+            Layout.alignment: Qt.AlignVCenter
 
-            radius: 12
-            color: modelData.focused ? "#444" : backgroundColor
+            implicitHeight: bar.height
+            implicitWidth: bar.height
+            radius: 4
+
+            property bool hovered: false
+
+            color: hovered ? Qt.lighter(modelData.id === Hyprland.focusedWorkspace.id ? "#444" : bar.color, 1.4) : modelData.id === Hyprland.focusedWorkspace.id ? "#444" : bar.color
 
             MouseArea {
                 hoverEnabled: true
                 anchors.fill: parent
-                onClicked: Hyprland.dispatch(`workspace ${modelData.id}`)
-                onEntered: {
-                    parent.color = "#222";
-                    workspaceText.color = "#fff";
-                }
-                onExited: {
-                    parent.color = modelData.focused ? "#444" : bar.color;
-                    workspaceText.color = "#aaa";
-                }
                 cursorShape: Qt.PointingHandCursor
+
+                onClicked: modelData.activate()
+                onEntered: workspaceButton.hovered = true
+                onExited: workspaceButton.hovered = false
             }
 
             Text {
                 id: workspaceText
                 text: modelData.id
-                color: textColor
+                color: "#aaa"
                 font.pixelSize: 14
+                font.family: "JetBrainsMonoNL Nerd Font"
+                font.styleName: "SemiBold"
+
+                // height: bar.height * 2
 
                 anchors {
                     verticalCenter: parent.verticalCenter
@@ -59,10 +61,14 @@ Row {
         }
     }
 
-    Text {
-        visible: Hyprland.workspaces.length === 0
-        text: "No workspaces"
-        color: "#fff"
-        font.pixelSize: 14
-    }
+    // Connections {
+    //     target: Hyprland
+    //     property string strId: ""
+
+    //     function onRawEvent(event) {
+    //         if (event.name === "workspace" || event.name === "focusedmon") {
+    //             Hyprland.refreshWorkspaces();
+    //         }
+    //     }
+    // }
 }
