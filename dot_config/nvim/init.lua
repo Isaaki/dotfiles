@@ -54,6 +54,8 @@ require("lazy").setup({
 		require("isaaki/plugins/conform"),
 		require("isaaki/plugins/nvim-ufo"),
 		-- require("isaaki/plugins/hardtime"),
+
+    require("isaaki/plugins/leetcode")
 		-- end
 	},
 })
