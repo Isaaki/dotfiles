@@ -2,16 +2,19 @@
     "appLauncher": {
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
+        "enableClipPreview": true,
         "enableClipboardHistory": false,
         "pinnedExecs": [
         ],
         "position": "center",
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "useApp2Unit": false
+        "useApp2Unit": false,
+        "viewMode": "list"
     },
     "audio": {
         "cavaFrameRate": 60,
+        "externalMixer": "pwvucontrol || pavucontrol",
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
@@ -22,6 +25,7 @@
     },
     "bar": {
         "backgroundOpacity": 0.7000000000000001,
+        "capsuleOpacity": 1,
         "density": "default",
         "exclusive": true,
         "floating": false,
@@ -36,6 +40,7 @@
             "center": [
                 {
                     "characterCount": 2,
+                    "followFocusedScreen": false,
                     "hideUnoccupied": false,
                     "id": "Workspace",
                     "labelMode": "index"
@@ -43,6 +48,7 @@
             ],
             "left": [
                 {
+                    "diskPath": "/",
                     "id": "SystemMonitor",
                     "showCpuTemp": true,
                     "showCpuUsage": true,
@@ -59,9 +65,11 @@
                     "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
+                    "showArtistFirst": true,
+                    "showProgressRing": true,
                     "showVisualizer": false,
                     "useFixedWidth": false,
-                    "visualizerType": "linear"
+                    "visualizerType": "mirrored"
                 }
             ],
             "right": [
@@ -108,13 +116,13 @@
             ]
         }
     },
-    "battery": {
-        "chargingMode": 0
-    },
     "brightness": {
         "brightnessStep": 5,
         "enableDdcSupport": true,
         "enforceMinimum": true
+    },
+    "changelog": {
+        "lastSeenVersion": ""
     },
     "colorSchemes": {
         "darkMode": true,
@@ -192,14 +200,16 @@
         "onlySameOutput": true,
         "pinnedApps": [
         ],
+        "radiusRatio": 0.1,
         "size": 1
     },
     "general": {
+        "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": false,
         "animationSpeed": 2,
         "avatarImage": "/home/isaaki/Sync/Misc/profile-pictures/Maniac-profile.jpg",
         "compactLockScreen": false,
-        "dimmerOpacity": 0.8,
+        "dimmerOpacity": 0.58,
         "enableShadows": false,
         "forceBlackScreenCorners": false,
         "language": "",
@@ -210,6 +220,7 @@
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
+        "showHibernateOnLockScreen": false,
         "showScreenCorners": false
     },
     "hooks": {
@@ -218,15 +229,16 @@
         "wallpaperChange": ""
     },
     "location": {
-        "analogClockInCalendar": false,
-        "firstDayOfWeek": -1,
+        "analogClockInCalendar": true,
+        "firstDayOfWeek": 1,
         "name": "Oslo",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
-        "showWeekNumberInCalendar": false,
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
         "useFahrenheit": false,
-        "weatherEnabled": true
+        "weatherEnabled": true,
+        "weatherShowEffects": true
     },
     "network": {
         "wifiEnabled": true
@@ -280,22 +292,32 @@
         "powerOptions": [
             {
                 "action": "lock",
+                "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "suspend",
+                "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "reboot",
+                "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "logout",
+                "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "shutdown",
+                "countdownEnabled": true,
+                "enabled": true
+            },
+            {
+                "action": "hibernate",
+                "countdownEnabled": true,
                 "enabled": true
             }
         ],
@@ -318,6 +340,7 @@
     },
     "templates": {
         "alacritty": false,
+        "cava": false,
         "code": false,
         "discord": false,
         "enableUserTemplates": false,
@@ -330,6 +353,7 @@
         "pywalfox": false,
         "qt": false,
         "spicetify": false,
+        "telegram": false,
         "vicinae": false,
         "walker": false,
         "wezterm": false
@@ -356,17 +380,17 @@
             {
                 "directory": "/home/isaaki/Pictures/Wallpapers/Space",
                 "name": "DP-1",
-                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_17.jpg"
+                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_9.jpg"
             },
             {
                 "directory": "/home/isaaki/Pictures/Wallpapers/Space",
                 "name": "HDMI-A-1",
-                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_17.jpg"
+                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_9.jpg"
             },
             {
                 "directory": "/home/isaaki/Pictures/Wallpapers/Space",
                 "name": "DP-2",
-                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_17.jpg"
+                "wallpaper": "/home/isaaki/Pictures/Wallpapers/Space/Space_Wallpaper_9.jpg"
             }
         ],
         "overviewEnabled": false,
