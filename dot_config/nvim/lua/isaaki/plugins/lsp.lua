@@ -177,7 +177,8 @@ return {
 		local servers = {
 			"ts_ls",
 			"lua_ls",
-			"gopls"
+			"gopls",
+      "lemminx"
 		}
 
 		-- Ensure the servers and tools above are installed
