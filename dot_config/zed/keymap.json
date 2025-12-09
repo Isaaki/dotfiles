@@ -50,8 +50,8 @@
       "space shift-s": "project_symbols::Toggle",
 
       "space h": "editor::SelectAllMatches",
-      "space y": "editor::Copy",
-      "space p": "editor::Paste",
+      // "space y": "editor::Copy",
+      // "space p": "editor::Paste",
 
       "space d h": "editor::GoToPreviousDiagnostic",
       "space d l": "editor::GoToDiagnostic",
