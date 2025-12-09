@@ -105,6 +105,8 @@ spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-
 
 // Programs
 spawn-at-startup "firefox"
+spawn-at-startup "flatpak run com.plexamp.Plexamp"
+spawn-at-startup "pear-desktop"
 
 hotkey-overlay {
   skip-at-startup
@@ -127,6 +129,12 @@ window-rule {
 }
 
 window-rule {
+  match app-id="youtube_music$" at-startup=true
+  match app-id="plexamp$" at-startup=true
+  open-on-output "Samsung Electric Company SyncMaster 0x4C523234"
+}
+
+window-rule {
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
   open-floating true
 }
@@ -142,7 +150,6 @@ window-rule {
   geometry-corner-radius 6
   clip-to-geometry true
 }
-
 
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }

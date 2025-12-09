@@ -7,6 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "indent_size": 14.0,
+    "entry_spacing": "standard"
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "indent_guides": {
+    "background_coloring": "disabled",
+    "coloring": "indent_aware"
+  },
+  "autoscroll_on_clicks": true,
   "colorize_brackets": true,
   "format_on_save": "off",
   "icon_theme": "Zed (Default)",
@@ -24,7 +38,7 @@
   // VIM
   "vim_mode": true,
   "relative_line_numbers": "enabled",
-  "vertical_scroll_margin": 14,
+  "vertical_scroll_margin": 18,
   "extend_comment_on_newline": false,
 
   "theme": {
@@ -33,4 +47,3 @@
     "dark": "Ayu Dark"
   }
 }
-
