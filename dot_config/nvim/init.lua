@@ -53,6 +53,7 @@ require("lazy").setup({
 		require("isaaki/plugins/luvit-meta"),
 		require("isaaki/plugins/conform"),
 		require("isaaki/plugins/nvim-ufo"),
+    require("isaaki/plugins/mini"),
 		-- require("isaaki/plugins/hardtime"),
 
     require("isaaki/plugins/leetcode")
