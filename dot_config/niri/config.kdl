@@ -137,7 +137,7 @@ window-rule {
 
 window-rule {
   match app-id="youtube_music$" at-startup=true
-  match app-id="plexamp$" at-startup=true
+  match app-id=r#"(P|p)lexamp$"# at-startup=true
   open-on-output "Samsung Electric Company SyncMaster 0x4C523234"
 }
 

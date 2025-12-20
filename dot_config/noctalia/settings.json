@@ -447,7 +447,7 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "directory": "/home/isaaki/Pictures/Wallpapers/Space",
+        "directory": "/home/isaaki/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
@@ -459,7 +459,7 @@
         "panelPosition": "follow_bar",
         "randomEnabled": true,
         "randomIntervalSec": 7200,
-        "recursiveSearch": false,
+        "recursiveSearch": true,
         "setWallpaperOnAllMonitors": true,
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
@@ -467,11 +467,11 @@
         "useWallhaven": false,
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
-        "wallhavenPurity": "100",
+        "wallhavenPurity": "010",
         "wallhavenQuery": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
-        "wallhavenSorting": "date_added"
+        "wallhavenSorting": "views"
     }
 }
