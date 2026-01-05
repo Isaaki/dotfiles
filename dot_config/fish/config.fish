@@ -1,5 +1,7 @@
 source ~/.config/fish/cachyos-config.fish
 
+set --erase --universal fish_key_bindings
+
 # overwrite greeting
 # potentially disabling fastfetch
 function fish_greeting
@@ -35,10 +37,7 @@ if test -d ~/.local/bin
 end
 
 if type -q zoxide
-  alias z="zoxide"
   zoxide init fish | source
-
-# Tmux-Zoxide-Sessionizer
   set -gx _ZO_FZF_OPTS "--height=100%"
-  bind ctrl-f 'tz'
+  bind \cf 'zi; commandline -f repaint'
 end

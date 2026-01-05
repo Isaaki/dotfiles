@@ -43,4 +43,4 @@ PATH=$PATH:$HOME/dev/zls-0.15.0
 
 # Tmux-Zoxide-Sessionizer
 export _ZO_FZF_OPTS="--height=100%"
-bind '"\C-f":"tz\n"'
+bind '"\C-f": "\C-u zi\n"'

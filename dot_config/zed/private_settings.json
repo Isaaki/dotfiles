@@ -7,28 +7,62 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "vertical_scroll_margin": 14.0,
+  "redact_private_values": false,
+  "outline_panel": {
+    "indent_guides": {
+      "show": "always",
+    },
+  },
+  "window_decorations": "client",
+  "tabs": {
+    "show_close_button": "hidden",
+    "file_icons": false,
+    "git_status": false,
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": true,
+    "show_nav_history_buttons": false,
+    "show": true,
+  },
+  "title_bar": {
+    "show_menus": false,
+  },
+  "search": {
+    "center_on_match": true,
+  },
   "project_panel": {
+    "hide_hidden": false,
+    "hide_root": false,
+    "scrollbar": {
+      "show": "auto",
+    },
     "indent_size": 14.0,
-    "entry_spacing": "standard"
+    "entry_spacing": "standard",
   },
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "indent_guides": {
     "background_coloring": "disabled",
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
-  "autoscroll_on_clicks": true,
+  "autoscroll_on_clicks": false,
   "colorize_brackets": true,
   "format_on_save": "off",
   "icon_theme": "Zed (Default)",
   "ui_font_size": 16,
-  "buffer_font_size": 14,
+  "buffer_font_size": 13.0,
 
   "buffer_font_family": "ComicCode Nerd Font",
-  "buffer_font_fallbacks": [".ZedMono", "Consolas", "Inconsolata", "Ubuntu Mono"],
+  "buffer_font_fallbacks": [
+    ".ZedMono",
+    "Consolas",
+    "Inconsolata",
+    "Ubuntu Mono",
+  ],
 
   "preview_tabs": {
     "enabled": true,
@@ -37,12 +71,16 @@
   // VIM
   "vim_mode": true,
   "relative_line_numbers": "enabled",
-  "vertical_scroll_margin": 18,
   "extend_comment_on_newline": false,
 
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark"
-  }
+    "dark": "Ayu Dark",
+  },
+  "dap": {
+    "CodeLLDB": {
+      "binary": "/usr/bin/codelldb",
+    },
+  },
 }

@@ -10,14 +10,14 @@
     "context": "Workspace",
     "bindings": {
       "alt-t": "task::Spawn",
-      "ctrl-alt-t": "task::Rerun"
-    }
+      "ctrl-alt-t": "task::Rerun",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      "j k": "vim::NormalBefore"
-    }
+      "j k": "vim::NormalBefore",
+    },
   },
   {
     "context": "VimControl && !menu",
@@ -29,16 +29,27 @@
       "ctrl-k": "vim::SelectPrevious",
 
       "alt-h": "pane::ActivatePreviousItem",
-      "alt-l": "pane::ActivateNextItem"
-    }
+      "alt-l": "pane::ActivateNextItem",
+
+      "space o z": "workspace::ToggleLeftDock",
+      "space e": "project_panel::ToggleFocus",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
-      "space q": ["pane::CloseActiveItem", { "close_pinned": false }]
-    }
+      "space q": ["pane::CloseActiveItem", { "close_pinned": false }],
+    },
   },
-
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
@@ -57,28 +68,34 @@
       "space d l": "editor::GoToDiagnostic",
 
       "space o f": "file_finder::Toggle",
-      "space e": "file_finder::Toggle",
       "space o t": "diagnostics::Deploy",
       "space o r": "editor::FindAllReferences",
       "space o i": "editor::GoToImplementation",
       "space o a": "editor::ToggleCodeActions",
 
-      "shift-y": ["workspace::SendKeystrokes", "y $"]
-    }
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+    },
   },
   {
     "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
     "bindings": {
       "q": "vim::MiniQuotes",
-      "b": "vim::MiniBrackets"
-    }
+      "b": "vim::MiniBrackets",
+    },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
       "y y": "vim::VisualYank",
       "shift-y": "vim::VisualYankLine",
-      "y s": "vim::PushAddSurrounds"
-    }
-  }
+      "y s": "vim::PushAddSurrounds",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space o z": "workspace::ToggleLeftDock",
+      "space e": "project_panel::ToggleFocus",
+    },
+  },
 ]
