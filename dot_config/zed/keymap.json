@@ -32,6 +32,7 @@
       "alt-l": "pane::ActivateNextItem",
 
       "space o z": "workspace::ToggleLeftDock",
+      "space o p": "projects::OpenRecent",
       "space e": "project_panel::ToggleFocus",
     },
   },
@@ -61,8 +62,6 @@
       "space shift-s": "project_symbols::Toggle",
 
       "space h": "editor::SelectAllMatches",
-      // "space y": "editor::Copy",
-      // "space p": "editor::Paste",
 
       "space d h": "editor::GoToPreviousDiagnostic",
       "space d l": "editor::GoToDiagnostic",
@@ -95,6 +94,7 @@
     "context": "ProjectPanel",
     "bindings": {
       "space o z": "workspace::ToggleLeftDock",
+      "space o p": "projects::OpenRecent",
       "space e": "project_panel::ToggleFocus",
     },
   },
