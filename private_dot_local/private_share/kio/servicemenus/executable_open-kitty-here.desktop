@@ -1,0 +1,11 @@
+[Desktop Entry]
+Actions=openInKitty;
+Icon=utilities-terminal
+MimeType=inode/directory;
+ServiceTypes=KonqPopupMenu/Plugin
+Type=Service
+
+[Desktop Action openInKitty]
+Exec=kitty -d %f
+Icon=kitty
+Name=Open with Kitty
