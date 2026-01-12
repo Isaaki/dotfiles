@@ -1,6 +1,11 @@
 // This config is in the KDL format: https://kdl.dev
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+environment {
+  QT_QPA_PLATFORMTHEME "qt6ct"
+
+}
+
 // Input device configuration.
 // https://yalter.github.io/niri/Configuration:-Input
 input {
@@ -109,6 +114,8 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // Theming
 spawn-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"  // for GTK4 apps
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'"   // for GTK3 apps
+
+spawn-at-startup "qs -c noctalia-shell"
 
 // Programs
 spawn-at-startup "firefox"
