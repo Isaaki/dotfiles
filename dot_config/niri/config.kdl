@@ -119,6 +119,11 @@ animations {
   slowdown 0.4
 }
 
+cursor {
+  xcursor-theme "my_cursors"
+  xcursor-size 24
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
