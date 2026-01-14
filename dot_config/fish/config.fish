@@ -1,4 +1,4 @@
-source ~/.config/fish/cachyos-config.fish
+source ~/.config/fish/my-config.fish
 
 set --erase --universal fish_key_bindings
 
