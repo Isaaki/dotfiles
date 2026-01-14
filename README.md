@@ -3,12 +3,12 @@
   - base-devel
   - greetd
   - greetd-tuigreet
-  - mason
   - cpio
   - neovim
   - fzf
   - chezmoi
-  - uwsm
+  - eza
+  - bat
   - gnome-keyring
   - polkit-gnome
   - seahorse
