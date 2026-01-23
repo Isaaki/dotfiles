@@ -101,14 +101,6 @@ layout {
   }
 }
 
-// Programs
-spawn-at-startup "firefox"
-spawn-at-startup "steam"
-spawn-at-startup "flatpak" "run" "com.plexamp.Plexamp"
-spawn-at-startup "pear-desktop"
-
-spawn-at-startup "~/.local/bin/niri-autoscroll"
-
 hotkey-overlay {
   skip-at-startup
 }
@@ -118,15 +110,38 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-  slowdown 0.4
+  slowdown 0.2
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Window-Rules
+// Autostart
+spawn-at-startup "firefox"
+spawn-at-startup "steam"
+
+// Plexamp
+spawn-at-startup "plexamp"
+spawn-at-startup "flatpak" "run" "com.plexamp.Plexamp"
+
+// Pear-desktop
+spawn-at-startup "pear-desktop"
+spawn-at-startup "flatpak" "run" "com.github.th_ch.youtube_music"
+
+// Custom programs
+spawn-at-startup "~/.local/bin/niri-autoscroll"
+
+// Window rules
+window-rule {
+  geometry-corner-radius 6
+  clip-to-geometry true
+}
+
 window-rule {
   match app-id="firefox$" at-startup=true
   open-on-output "LG Electronics LG ULTRAGEAR 109MAMB6UH71"
+}
+
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  open-floating true
 }
 
 window-rule {
@@ -136,20 +151,10 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-  open-floating true
-}
-
-window-rule {
   match app-id="btop"
   open-floating true
   min-width 1400
   min-height 850
-}
-
-window-rule {
-  geometry-corner-radius 6
-  clip-to-geometry true
 }
 
 window-rule {
@@ -161,6 +166,29 @@ window-rule {
 window-rule {
   match app-id="org.kde.kcalc"
   open-floating true
+}
+
+// For screencast highlight
+window-rule {
+  match is-window-cast-target=true
+
+  focus-ring {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+
+  border {
+    inactive-color "#7d0d2d"
+  }
+
+  shadow {
+    color "#7d0d2d70"
+  }
+
+  tab-indicator {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
 }
 
 binds {
