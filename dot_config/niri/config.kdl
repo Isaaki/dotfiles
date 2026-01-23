@@ -107,6 +107,8 @@ spawn-at-startup "steam"
 spawn-at-startup "flatpak" "run" "com.plexamp.Plexamp"
 spawn-at-startup "pear-desktop"
 
+spawn-at-startup "~/.local/bin/niri-autoscroll"
+
 hotkey-overlay {
   skip-at-startup
 }
@@ -117,11 +119,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
   slowdown 0.4
-}
-
-cursor {
-  xcursor-theme "my_cursors"
-  xcursor-size 24
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -158,6 +155,11 @@ window-rule {
 window-rule {
   match title="^(R|r)aylib"
   exclude app-id="dev.zed.Zed"
+  open-floating true
+}
+
+window-rule {
+  match app-id="org.kde.kcalc"
   open-floating true
 }
 
@@ -367,10 +369,16 @@ binds {
 
 
   // Plexamp media shortcuts
+  // Mod+Ctrl+Alt+Left { spawn-sh "playerctl --player=Plexamp play-pause"; }
+  // Mod+Ctrl+Alt+Right { spawn-sh "playerctl --player=Plexamp next"; }
+  // Mod+Ctrl+Alt+Up { spawn "~/.scripts/plexamp-volume.sh" "up"; }
+  // Mod+Ctrl+Alt+Down { spawn "~/.scripts/plexamp-volume.sh" "down"; }
+
   Mod+Ctrl+Alt+Left { spawn-sh "playerctl --player=Plexamp play-pause"; }
   Mod+Ctrl+Alt+Right { spawn-sh "playerctl --player=Plexamp next"; }
   Mod+Ctrl+Alt+Up { spawn "~/.scripts/plexamp-volume.sh" "up"; }
   Mod+Ctrl+Alt+Down { spawn "~/.scripts/plexamp-volume.sh" "down"; }
+
 
   // YT Music media shortcuts
   Mod+Ctrl+Alt+J { spawn-sh "playerctl --player=YoutubeMusic play-pause"; }
@@ -380,3 +388,5 @@ binds {
 }
 
 include "dms/binds.kdl"
+include "dms/outputs.kdl"
+include "dms/cursor.kdl"

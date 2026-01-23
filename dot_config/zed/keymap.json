@@ -11,6 +11,9 @@
     "bindings": {
       "alt-t": "task::Spawn",
       "ctrl-alt-t": "task::Rerun",
+
+      "alt-h": "pane::ActivatePreviousItem",
+      "alt-l": "pane::ActivateNextItem",
     },
   },
   {
@@ -27,9 +30,6 @@
 
       "ctrl-j": "vim::SelectNext",
       "ctrl-k": "vim::SelectPrevious",
-
-      "alt-h": "pane::ActivatePreviousItem",
-      "alt-l": "pane::ActivateNextItem",
 
       "space o z": "workspace::ToggleLeftDock",
       "space o p": "projects::OpenRecent",
@@ -54,6 +54,8 @@
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
+      "space": null,
+
       "space f": "editor::Format",
       "space k": "editor::Hover",
       "space r": "editor::Rename",
