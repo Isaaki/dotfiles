@@ -36,6 +36,13 @@ if test -d ~/.local/bin
     end
 end
 
+# Add .cargo/bin to PATH
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
+
 if type -q zoxide
   zoxide init fish | source
   set -gx _ZO_FZF_OPTS "--height=100%"
