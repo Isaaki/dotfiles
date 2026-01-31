@@ -125,9 +125,6 @@ spawn-at-startup "flatpak" "run" "com.plexamp.Plexamp"
 spawn-at-startup "pear-desktop"
 spawn-at-startup "flatpak" "run" "com.github.th_ch.youtube_music"
 
-// Custom programs
-spawn-at-startup "~/.local/bin/niri-autoscroll"
-
 // Window rules
 window-rule {
   geometry-corner-radius 6

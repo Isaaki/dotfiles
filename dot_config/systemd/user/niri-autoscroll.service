@@ -1,0 +1,12 @@
+[Unit]
+Description=Niri Autoscroll
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/isaaki/.local/bin/niri-autoscroll
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
