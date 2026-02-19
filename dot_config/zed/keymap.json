@@ -32,7 +32,9 @@
       "ctrl-k": "vim::SelectPrevious",
 
       "space o z": "workspace::ToggleLeftDock",
+      "space o l": "workspace::ToggleRightDock",
       "space o p": "projects::OpenRecent",
+
       "space e": "project_panel::ToggleFocus",
     },
   },

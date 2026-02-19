@@ -48,3 +48,10 @@ if type -q zoxide
   set -gx _ZO_FZF_OPTS "--height=100%"
   bind \cf 'zi; commandline -f repaint'
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/isaaki/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
