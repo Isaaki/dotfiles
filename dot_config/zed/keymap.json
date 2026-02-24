@@ -31,11 +31,12 @@
       "ctrl-j": "vim::SelectNext",
       "ctrl-k": "vim::SelectPrevious",
 
-      "space o z": "workspace::ToggleLeftDock",
-      "space o l": "workspace::ToggleRightDock",
       "space o p": "projects::OpenRecent",
 
+      "space o e": "workspace::ToggleLeftDock",
       "space e": "project_panel::ToggleFocus",
+      "space o z": "workspace::ToggleRightDock",
+      "space z": "agent::ToggleFocus",
     },
   },
   {
@@ -97,9 +98,44 @@
   {
     "context": "ProjectPanel",
     "bindings": {
-      "space o z": "workspace::ToggleLeftDock",
+      "space o e": "workspace::ToggleLeftDock",
       "space o p": "projects::OpenRecent",
       "space e": "project_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction_conflict)",
+    "bindings": {
+      "alt-l": null,
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "alt-l": null,
+    },
+  },
+  {
+    "context": "((os != macos && Editor) && edit_prediction_conflict)",
+    "bindings": {
+      "alt-l": null,
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "ctrl-alt-l": "editor::AcceptEditPrediction",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-alt-l": null,
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction_conflict)",
+    "bindings": {
+      "ctrl-alt-l": "editor::AcceptEditPrediction",
     },
   },
 ]
