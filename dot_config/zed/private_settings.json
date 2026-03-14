@@ -85,6 +85,8 @@
     "Ubuntu Mono",
   ],
 
+  "load_direnv": "shell_hook",
+
   "preview_tabs": {
     "enabled": true,
   },

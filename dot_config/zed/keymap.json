@@ -38,8 +38,6 @@
 
       "space o e": "project_panel::Toggle",
       "space e": "project_panel::ToggleFocus",
-      "space o z": "workspace::ToggleRightDock",
-      "space z": "agent::ToggleFocus",
     },
   },
   {
@@ -108,38 +106,22 @@
     },
   },
   {
-    "context": "(Editor && edit_prediction_conflict)",
+    "context": "Editor && (edit_prediction || edit_prediction_conflict)",
     "bindings": {
-      "alt-l": null,
+      "alt-l": null, // Remove from AI predictions
+      "tab": "editor::AcceptEditPrediction", // Use Tab instead
     },
   },
   {
-    "context": "(Editor && edit_prediction)",
+    "context": "AgentPanel || AcpThread",
     "bindings": {
-      "alt-l": null,
+      "alt-l": null, // Remove from AI Agent Panel
     },
   },
   {
-    "context": "((os != macos && Editor) && edit_prediction_conflict)",
+    "context": "GitCommit || CommitEditor",
     "bindings": {
-      "alt-l": null,
-    },
-  },
-  {
-    "context": "(Editor && edit_prediction)",
-    "bindings": {
-      "ctrl-alt-l": "editor::AcceptEditPrediction",
-    },
-  },
-  {
-    "bindings": {
-      "ctrl-alt-l": null,
-    },
-  },
-  {
-    "context": "(Editor && edit_prediction_conflict)",
-    "bindings": {
-      "ctrl-alt-l": "editor::AcceptEditPrediction",
+      "alt-l": null, // Remove from Git "Generate Commit Message"
     },
   },
 ]
