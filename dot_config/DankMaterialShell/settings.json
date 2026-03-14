@@ -1,11 +1,17 @@
 {
   "currentThemeName": "custom",
   "currentThemeCategory": "registry",
-  "customThemeFile": "/home/isaaki/.config/DankMaterialShell/themes/tokyoNightNightMoon/theme.json",
+  "customThemeFile": "/home/isaaki/.config/DankMaterialShell/themes/steamDeck/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
-      "flavor": "mocha",
-      "accent": "blue"
+      "dark": {
+        "flavor": "mocha",
+        "accent": "blue"
+      },
+      "light": {
+        "flavor": "latte",
+        "accent": "sapphire"
+      }
     }
   },
   "matugenScheme": "scheme-tonal-spot",
@@ -283,7 +289,7 @@
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
-  "terminalsAlwaysDark": true,
+  "terminalsAlwaysDark": false,
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,
@@ -369,7 +375,7 @@
   "osdPosition": 5,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": false,
-  "osdMediaPlaybackEnabled": true,
+  "osdMediaPlaybackEnabled": false,
   "osdBrightnessEnabled": true,
   "osdIdleInhibitorEnabled": true,
   "osdMicMuteEnabled": true,

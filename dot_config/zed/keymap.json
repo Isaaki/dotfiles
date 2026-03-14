@@ -33,7 +33,10 @@
 
       "space o p": "projects::OpenRecent",
 
-      "space o e": "workspace::ToggleLeftDock",
+      "space o l": "agent::Toggle",
+      "space l": "agent::ToggleFocus",
+
+      "space o e": "project_panel::Toggle",
       "space e": "project_panel::ToggleFocus",
       "space o z": "workspace::ToggleRightDock",
       "space z": "agent::ToggleFocus",
@@ -98,8 +101,9 @@
   {
     "context": "ProjectPanel",
     "bindings": {
-      "space o e": "workspace::ToggleLeftDock",
       "space o p": "projects::OpenRecent",
+
+      "space o e": "project_panel::Toggle",
       "space e": "project_panel::ToggleFocus",
     },
   },

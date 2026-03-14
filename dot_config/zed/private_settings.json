@@ -7,21 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+  },
   "context_servers": {
     "mcp-server-context7": {
       "enabled": true,
       "remote": false,
       "settings": {
-        "context7_api_key": ""
-      }
-    }
+        "context7_api_key": "",
+      },
+    },
   },
   "which_key": {
     "delay_ms": 200,
-    "enabled": true
+    "enabled": true,
   },
   "session": {
-    "trust_all_worktrees": false
+    "trust_all_worktrees": false,
   },
   "vertical_scroll_margin": 14.0,
   "redact_private_values": false,
@@ -98,5 +103,8 @@
     "CodeLLDB": {
       "binary": "/usr/bin/codelldb",
     },
+  },
+  "code_actions_on_format": {
+    "source.organizeImports": true,
   },
 }
