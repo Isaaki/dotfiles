@@ -27,7 +27,6 @@ export VISUAL=nvim
 alias rm='echo "This is not the command you are looking for. Use \"th\" instead. To use rm append a \"\\\""; false'
 alias th='trash-put'
 
-alias hx='helix'
 alias zed='env -u WAYLAND_DISPLAY zeditor'
 
 # Paths

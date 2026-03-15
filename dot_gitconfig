@@ -1,7 +1,0 @@
-[user]
-	name = isaaki
-	email = xisaaki@proton.me
-[pull]
-	rebase = true
-[init]
-	defaultBranch = main
