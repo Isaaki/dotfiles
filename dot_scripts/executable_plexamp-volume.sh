@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the precise application name found in your pactl output
 PLEXAMP_APP_NAME="ALSA plug-in [plexamp]"

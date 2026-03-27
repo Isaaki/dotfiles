@@ -114,6 +114,9 @@ animations {
 }
 
 // Autostart
+spawn-at-startup "systemctl" "--user" "import-environment" "PATH" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_SESSION_TYPE" "XDG_SESSION_DESKTOP" "XDG_RUNTIME_DIR"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_SESSION_TYPE" "XDG_SESSION_DESKTOP" "XDG_RUNTIME_DIR"
+spawn-at-startup "systemctl" "--user" "restart" "niri-session.target"
 spawn-at-startup "firefox"
 spawn-at-startup "steam"
 
@@ -194,7 +197,8 @@ binds {
   // Suggested binds for running programs: terminal, app launcher, screen locker.
   Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
   Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-  Mod+E hotkey-overlay-title="Run an Application: dolphin" { spawn "dolphin"; }
+  // Mod+E hotkey-overlay-title="Run an Application: dolphin" { spawn "dolphin"; }
+  Mod+E hotkey-overlay-title="Run an Application: thunar" { spawn "thunar"; }
 
   Mod+Escape hotkey-overlay-title="Toggle btop" { spawn-sh "~/.scripts/btop-toggle.sh"; }
   Mod+Z hotkey-overlay-title="Mpv link open" { spawn-sh "~/.scripts/mpv-open-link.sh"; }

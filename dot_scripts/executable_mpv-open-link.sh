@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get clipboard content
 CLIP_CONTENT=$(wl-paste)

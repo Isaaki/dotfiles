@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if btop is running
 if pgrep -x btop > /dev/null; then
