@@ -6,7 +6,7 @@
     "catppuccin": {
       "dark": {
         "flavor": "mocha",
-        "accent": "blue"
+        "accent": "sapphire"
       },
       "light": {
         "flavor": "latte",
@@ -220,7 +220,7 @@
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "ethernet",
-  "iconTheme": "breeze",
+  "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "my_cursors",
     "size": 24,
@@ -246,7 +246,7 @@
   "launcherLogoSizeOffset": 0,
   "fontFamily": "Noto Sans",
   "monoFontFamily": "FiraCode Nerd Font",
-  "fontWeight": 600,
+  "fontWeight": 500,
   "fontScale": 1,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",

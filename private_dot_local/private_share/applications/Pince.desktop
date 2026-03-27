@@ -2,7 +2,7 @@
 Version=1.0
 Name=PINCE
 Comment=Reverse Engineering Tool (GDB Frontend)
-Exec=sh -c 'SUDO_ASKPASS=/usr/bin/ksshaskpass sudo -A -E .local/bin/PINCE-x86_64.AppImage'
+Exec=sh -c 'SUDO_ASKPASS=$(which ksshaskpass) sudo -A -E pince'
 Icon=utilities-log-viewer
 Terminal=false
 Type=Application
