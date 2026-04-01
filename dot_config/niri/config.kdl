@@ -380,9 +380,9 @@ binds {
   // rather than stacked on top of each other.
   Mod+W { toggle-column-tabbed-display; }
 
-  Print { screenshot; }
-  Ctrl+Print { screenshot-screen; }
-  Alt+Print { screenshot-window; }
+
+  Print hotkey-overlay-title="screenshot" { spawn-sh "~/.scripts/screenshot.sh"; }
+  Shift+Print hotkey-overlay-title="screenshot (same area)" { spawn-sh "~/.scripts/screenshot-same.sh"; }
 
   Mod+Ctrl+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
