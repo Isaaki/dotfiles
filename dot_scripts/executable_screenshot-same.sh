@@ -2,7 +2,7 @@
 
 set -e
 mkdir -p "$HOME/Pictures/satty"
-grim -t ppm -g "$(tr -d '\n' < /tmp/last-slurp)" - | "$HOME/.local/bin/satty" \
+grim -t ppm -g "$(tr -d '\n' < /tmp/last-slurp)" - | satty \
     --filename - \
     --initial-tool arrow \
     --copy-command wl-copy \

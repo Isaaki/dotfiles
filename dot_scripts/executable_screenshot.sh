@@ -4,7 +4,7 @@ set -e
 mkdir -p "$HOME/Pictures/satty"
 region=$(slurp -d)
 echo "$region" > /tmp/last-slurp
-grim -t ppm -g "$region" - | "$HOME/.local/bin/satty" \
+grim -t ppm -g "$region" - | satty \
     --filename - \
     --initial-tool arrow \
     --copy-command wl-copy \
