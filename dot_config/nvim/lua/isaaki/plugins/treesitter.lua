@@ -1,7 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "nvim-treesitter/nvim-treesitter-context" }
   },
   event = "BufRead",
@@ -9,7 +8,7 @@ return {
   ---@class TSConfig
   opts = {
     ensure_installed = {
-      "javascript", "typescript", "vue", "c", "rust", "lua", "vim", "vimdoc", "zig" 
+      "javascript", "typescript", "vue", "c", "rust", "lua", "vim", "vimdoc", "zig"
     },
   },
   config = function(_, opts)
@@ -35,4 +34,3 @@ return {
     })
   end,
 }
-
