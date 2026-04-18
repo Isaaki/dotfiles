@@ -8,7 +8,7 @@ input {
     repeat-delay 250
     repeat-rate 30
     xkb {
-      layout "alt-nord,ru"
+      layout "alt-nord,no"
     }
     numlock
   }
@@ -193,6 +193,7 @@ window-rule {
 
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
+  Mod+Space repeat=false hotkey-overlay-title="Switch keyboard layout" { switch-layout "next"; }
 
   // Suggested binds for running programs: terminal, app launcher, screen locker.
   Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
