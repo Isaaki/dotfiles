@@ -1,3 +1,5 @@
+## Config based on CachyOS config
+
 ## Source from conf.d before our fish config
 source ~/.config/fish/conf.d/done.fish
 
@@ -5,7 +7,6 @@ source ~/.config/fish/conf.d/done.fish
 ## Set values
 ## Run fastfetch as welcome message
 function fish_greeting
-    fastfetch
 end
 
 # Format man pages
@@ -114,6 +115,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
+alias update='sudo pacman -Syu'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"

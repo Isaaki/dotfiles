@@ -31,16 +31,15 @@ alias th="trash-put"
 
 # Add .local/bin to PATH
 if test -d ~/.local/bin
-    if not contains -- ~/.local/bin $PATH
-        set -p PATH ~/.local/bin
-    end
+  if not contains -- ~/.local/bin $PATH
+    set -p PATH ~/.local/bin
+  end
 end
 
-# Add .cargo/bin to PATH
-if test -d ~/.cargo/bin
-    if not contains -- ~/.cargo/bin $PATH
-        set -p PATH ~/.cargo/bin
-    end
+if test -d ~/.local/bin
+  if not contains -- ~/.dotnet/tools/ $PATH
+    set -p PATH ~/.dotnet/tools/     
+  end
 end
 
 if type -q zoxide
@@ -50,7 +49,7 @@ if type -q zoxide
 end
 
 # pnpm
-set -gx PNPM_HOME "/home/isaaki/.local/share/pnpm"
+set -gx PNPM_HOME ~/.local/share/pnpm
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
