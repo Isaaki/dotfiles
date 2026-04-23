@@ -33,11 +33,11 @@
 
       "space o p": "projects::OpenRecent",
 
-      "space o l": "workspace::ToggleRightDock",
-      "space l": "agent::ToggleFocus",
-
-      "space o e": "workspace::ToggleLeftDock",
       "space e": "project_panel::ToggleFocus",
+      "space o e": "workspace::ToggleRightDock",
+
+      "space h": "agent::ToggleFocus",
+      "space o h": "workspace::ToggleLeftDock",
     },
   },
   {
@@ -66,8 +66,6 @@
       "space w": "workspace::Save",
       "space s": "outline::Toggle",
       "space shift-s": "project_symbols::Toggle",
-
-      "space h": "editor::SelectAllMatches",
 
       "space d h": "editor::GoToPreviousDiagnostic",
       "space d l": "editor::GoToDiagnostic",
@@ -101,12 +99,15 @@
     "bindings": {
       "space o p": "projects::OpenRecent",
 
-      "space o e": "workspace::ToggleLeftDock",
       "space e": "project_panel::ToggleFocus",
+      "space o e": "workspace::ToggleRightDock",
+
+      "space h": "agent::ToggleFocus",
+      "space o h": "workspace::ToggleLeftDock",
     },
   },
   {
-    "context": "Editor && (edit_prediction || edit_prediction_conflict)",
+    "context": "Editor && (edit_prediction || (edit_prediction && (showing_completions || in_leading_whitespace)))",
     "bindings": {
       "alt-l": null, // Remove from AI predictions
       "tab": "editor::AcceptEditPrediction", // Use Tab instead

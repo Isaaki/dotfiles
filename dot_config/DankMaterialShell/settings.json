@@ -1,7 +1,7 @@
 {
   "currentThemeName": "custom",
   "currentThemeCategory": "registry",
-  "customThemeFile": "/home/isaaki/.config/DankMaterialShell/themes/steamDeck/theme.json",
+  "customThemeFile": "/home/isak/.config/DankMaterialShell/themes/tokyoNightNightMoon/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
       "dark": {
@@ -198,6 +198,17 @@
   "centeringMode": "geometric",
   "clockDateFormat": "",
   "lockDateFormat": "",
+  "greeterRememberLastSession": true,
+  "greeterRememberLastUser": true,
+  "greeterEnableFprint": false,
+  "greeterEnableU2f": false,
+  "greeterWallpaperPath": "",
+  "greeterUse24HourClock": true,
+  "greeterShowSeconds": false,
+  "greeterPadHours12Hour": false,
+  "greeterLockDateFormat": "",
+  "greeterFontFamily": "",
+  "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
@@ -222,8 +233,8 @@
   "networkPreference": "ethernet",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "my_cursors",
-    "size": 24,
+    "theme": "Adwaita",
+    "size": 30,
     "niri": {
       "hideWhenTyping": false,
       "hideAfterInactiveMs": 0
@@ -289,7 +300,7 @@
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
-  "terminalsAlwaysDark": false,
+  "terminalsAlwaysDark": true,
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,
@@ -312,6 +323,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
+  "matugenTemplateZed": true,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
@@ -353,6 +365,8 @@
   "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 15,
+  "enableU2f": false,
+  "u2fMode": "or",
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 2,
@@ -380,7 +394,7 @@
   "osdIdleInhibitorEnabled": true,
   "osdMicMuteEnabled": true,
   "osdCapsLockEnabled": true,
-  "osdPowerProfileEnabled": false,
+  "osdPowerProfileEnabled": true,
   "osdAudioOutputEnabled": true,
   "powerActionConfirm": true,
   "powerActionHoldDuration": 0.5,
@@ -459,6 +473,10 @@
         "weather",
         {
           "id": "dankPomodoroTimer",
+          "enabled": true
+        },
+        {
+          "id": "battery",
           "enabled": true
         }
       ],
