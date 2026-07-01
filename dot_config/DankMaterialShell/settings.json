@@ -4,26 +4,32 @@
   "customThemeFile": "/home/isak/.config/DankMaterialShell/themes/tokyoNightNightMoon/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
-      "dark": {
-        "flavor": "mocha",
-        "accent": "sapphire"
-      },
       "light": {
         "flavor": "latte",
+        "accent": "blue"
+      },
+      "dark": {
+        "flavor": "frappe",
         "accent": "sapphire"
+      }
+    },
+    "amoledBlack": {
+      "light": {
+        "flavor": "black-light",
+        "accent": "pink"
       }
     }
   },
-  "matugenScheme": "scheme-tonal-spot",
+  "matugenScheme": "scheme-fruit-salad",
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
   "dockTransparency": 1,
-  "widgetBackgroundColor": "s",
+  "widgetBackgroundColor": "sc",
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 8,
+  "cornerRadius": 6,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -41,7 +47,7 @@
   "nightModeEnabled": false,
   "animationSpeed": 1,
   "customAnimationDuration": 500,
-  "syncComponentAnimationSpeeds": false,
+  "syncComponentAnimationSpeeds": true,
   "popoutAnimationSpeed": 1,
   "popoutCustomAnimationDuration": 150,
   "modalAnimationSpeed": 1,
@@ -93,7 +99,8 @@
     {
       "id": "brightnessSlider",
       "enabled": true,
-      "width": 50
+      "width": 50,
+      "deviceName": "ddc:i2c-3"
     },
     {
       "id": "wifi",
@@ -121,12 +128,17 @@
       "width": 50
     },
     {
+      "id": "darkMode",
+      "enabled": true,
+      "width": 50
+    },
+    {
       "id": "idleInhibitor",
       "enabled": true,
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
@@ -144,14 +156,14 @@
   "workspaceUnfocusedColorMode": "default",
   "workspaceUrgentColorMode": "default",
   "workspaceFocusedBorderEnabled": false,
-  "workspaceFocusedBorderColor": "surfaceText",
+  "workspaceFocusedBorderColor": "primary",
   "workspaceFocusedBorderThickness": 2,
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
   "audioVisualizerEnabled": true,
   "audioScrollMode": "volume",
-  "audioWheelScrollAmount": 5,
+  "audioWheelScrollAmount": 2,
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
   "runningAppsCompactMode": true,
@@ -196,7 +208,7 @@
     }
   ],
   "centeringMode": "geometric",
-  "clockDateFormat": "",
+  "clockDateFormat": "ddd MMM d",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
   "greeterRememberLastUser": true,
@@ -211,7 +223,7 @@
   "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
-  "spotlightModalViewMode": "list",
+  "spotlightModalViewMode": "grid",
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {},
   "appPickerViewMode": "grid",
@@ -250,28 +262,28 @@
   },
   "launcherLogoMode": "compositor",
   "launcherLogoCustomPath": "",
-  "launcherLogoColorOverride": "primary",
+  "launcherLogoColorOverride": "",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
   "launcherLogoSizeOffset": 0,
   "fontFamily": "Noto Sans",
   "monoFontFamily": "FiraCode Nerd Font",
-  "fontWeight": 500,
+  "fontWeight": 600,
   "fontScale": 1,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
   "notepadShowLineNumbers": false,
-  "notepadTransparencyOverride": -1,
-  "notepadLastCustomTransparency": 0.7,
+  "notepadTransparencyOverride": 0.9,
+  "notepadLastCustomTransparency": 0.9,
   "soundsEnabled": true,
   "useSystemSoundTheme": true,
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
-  "acMonitorTimeout": 1800,
-  "acLockTimeout": 3600,
+  "acMonitorTimeout": 600,
+  "acLockTimeout": 900,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "",
@@ -291,10 +303,15 @@
   "brightnessDevicePins": {},
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {},
-  "audioInputDevicePins": {},
+  "audioInputDevicePins": {
+    "preferredInput": [
+      "alsa_input.usb-GN_Netcom_A_S_Jabra_EVOLVE_20_MS_0000D0470D360A-00.mono-fallback"
+    ]
+  },
   "audioOutputDevicePins": {
     "preferredOutput": [
-      "alsa_output.usb-ARTURIA_MiniFuse_2_8840400264010899-00.HiFi__Line1__sink"
+      "alsa_output.usb-QTIL_Qudelix-5K_USB_DAC_96KHz_ABCDEF0123456789-00.analog-stereo",
+      "alsa_output.usb-GN_Netcom_A_S_Jabra_EVOLVE_20_MS_0000D0470D360A-00.iec958-stereo"
     ]
   },
   "gtkThemingEnabled": false,
@@ -369,7 +386,7 @@
   "u2fMode": "or",
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
-  "lockScreenNotificationMode": 2,
+  "lockScreenNotificationMode": 0,
   "hideBrightnessSlider": false,
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
@@ -389,7 +406,7 @@
   "osdPosition": 5,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": false,
-  "osdMediaPlaybackEnabled": false,
+  "osdMediaPlaybackEnabled": true,
   "osdBrightnessEnabled": true,
   "osdIdleInhibitorEnabled": true,
   "osdMicMuteEnabled": true,
@@ -428,7 +445,7 @@
     "dock": true
   },
   "niriOutputSettings": {
-    "LG Electronics LG ULTRAGEAR 109MAMB6UH71": {
+    "Samsung Electric Company C49RG9x H1AK500000": {
       "vrrOnDemand": true
     }
   },
@@ -452,10 +469,7 @@
       ],
       "showOnLastDisplay": true,
       "leftWidgets": [
-        {
-          "id": "launcherButton",
-          "enabled": true
-        },
+        "launcherButton",
         "workspaceSwitcher",
         "focusedWindow"
       ],
@@ -536,73 +550,6 @@
       "popupGapsAuto": true,
       "popupGapsManual": 4,
       "maximizeDetection": true
-    },
-    {
-      "id": "bar1768656636152",
-      "name": "Bar 2",
-      "enabled": true,
-      "position": 0,
-      "screenPreferences": [
-        {
-          "name": "DP-5",
-          "model": "SyncMaster"
-        },
-        {
-          "name": "HDMI-A-2",
-          "model": "BenQ xl2420t"
-        }
-      ],
-      "showOnLastDisplay": false,
-      "leftWidgets": [
-        "launcherButton"
-      ],
-      "centerWidgets": [
-        {
-          "id": "clock",
-          "enabled": true,
-          "clockCompactMode": false
-        }
-      ],
-      "rightWidgets": [
-        "systemTray",
-        "clipboard",
-        "notificationButton",
-        "controlCenterButton"
-      ],
-      "spacing": 0,
-      "innerPadding": -8,
-      "bottomGap": 0,
-      "transparency": 0.58,
-      "widgetTransparency": 0.95,
-      "squareCorners": true,
-      "noBackground": false,
-      "gothCornersEnabled": true,
-      "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 12,
-      "borderEnabled": false,
-      "borderColor": "surfaceText",
-      "borderOpacity": 1,
-      "borderThickness": 1,
-      "widgetOutlineEnabled": true,
-      "widgetOutlineColor": "secondary",
-      "widgetOutlineOpacity": 0.05,
-      "widgetOutlineThickness": 1,
-      "fontScale": 1,
-      "autoHide": false,
-      "autoHideDelay": 250,
-      "showOnWindowsOpen": false,
-      "openOnOverview": true,
-      "visible": true,
-      "popupGapsAuto": true,
-      "popupGapsManual": 4,
-      "maximizeDetection": true,
-      "scrollEnabled": true,
-      "scrollXBehavior": "column",
-      "scrollYBehavior": "workspace",
-      "shadowIntensity": 0,
-      "shadowOpacity": 60,
-      "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
     }
   ],
   "desktopClockEnabled": false,
@@ -673,46 +620,8 @@
   ],
   "systemMonitorVariants": [],
   "desktopWidgetPositions": {},
-  "desktopWidgetGridSettings": {
-    "SyncMaster": {
-      "enabled": true
-    }
-  },
-  "desktopWidgetInstances": [
-    {
-      "id": "dw_1771352807082_98l28eup0",
-      "widgetType": "desktopClock",
-      "name": "Desktop Clock",
-      "enabled": true,
-      "config": {
-        "style": "digital",
-        "transparency": 1,
-        "colorMode": "primary",
-        "customColor": "#ffffff",
-        "showDate": true,
-        "showAnalogNumbers": true,
-        "showAnalogSeconds": true,
-        "displayPreferences": [
-          {
-            "name": "DP-5",
-            "model": "SyncMaster"
-          }
-        ],
-        "syncPositionAcrossScreens": true,
-        "showOnOverlay": false,
-        "showOnOverview": true,
-        "clickThrough": false
-      },
-      "positions": {
-        "_synced": {
-          "x": 0.8541666666666666,
-          "y": 0.037037037037037035,
-          "width": 240,
-          "height": 200
-        }
-      }
-    }
-  ],
+  "desktopWidgetGridSettings": {},
+  "desktopWidgetInstances": [],
   "desktopWidgetGroups": [],
   "builtInPluginSettings": {
     "dms_settings_search": {
@@ -720,7 +629,11 @@
     }
   },
   "clipboardEnterToPaste": false,
-  "launcherPluginVisibility": {},
+  "launcherPluginVisibility": {
+    "emojiLauncher": {
+      "allowWithoutTrigger": true
+    }
+  },
   "launcherPluginOrder": [],
   "configVersion": 5
 }
