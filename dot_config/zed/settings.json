@@ -33,17 +33,12 @@
   "git_panel": {
     "dock": "right",
   },
-  "context_servers": {
-    },
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
         "model": "default",
         "mode": "acceptEdits",
       },
-      "type": "registry",
-    },
-    "claude-acp": {
       "type": "registry",
     },
   },
@@ -100,7 +95,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Material Icon Theme",
   },
   "ui_font_size": 16,
   "buffer_font_size": 13.0,
@@ -131,16 +126,22 @@
       "binary": "~/.local/bin/netcoredbg",
     },
   },
-  "lsp": {
-    "vue-language-server": {
-      "initialization_options": {
-        "typescript": {
-          "tsdk": "./node_modules/typescript/lib",
-        },
+  "languages": {
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true,
       },
     },
-  },
-  "languages": {
+    "Zig": {
+      "inlay_hints": {
+        "enabled": true,
+      },
+      "code_actions_on_format": {
+        "source.fixAll": true,
+        "source.organizeImports": true,
+      },
+      "tab_size": 4,
+    },
     "Vue.js": {
       "language_servers": [
         "vue-language-server",
@@ -151,25 +152,6 @@
     "CSharp": {
       "inlay_hints": {
         "enabled": true,
-      },
-      "tab_size": 4,
-    },
-    "Zig": {
-      "inlay_hints": {
-        "enabled": true,
-      },
-    },
-  },
-  "languages": {
-    "TypeScript": {
-      "code_actions_on_format": {
-        "source.organizeImports": true,
-      },
-    },
-    "Zig": {
-      "code_actions_on_format": {
-        "source.fixAll": true,
-        "source.organizeImports": true,
       },
       "tab_size": 4,
     },
@@ -184,6 +166,13 @@
   },
 
   "lsp": {
+    "vue-language-server": {
+      "initialization_options": {
+        "typescript": {
+          "tsdk": "./node_modules/typescript/lib",
+        },
+      },
+    },
     "zls": {
       "settings": {
         "path_lookup": true,
