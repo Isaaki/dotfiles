@@ -68,6 +68,8 @@
       "space r": "editor::Rename",
       "space w": "workspace::Save",
       "space b": "git::Blame",
+      "space s": "outline::Toggle",
+      "space shift-s": "project_symbols::Toggle",
 
       "space d h": "editor::GoToPreviousDiagnostic",
       "space d l": "editor::GoToDiagnostic",
