@@ -184,6 +184,19 @@
     },
   },
 
+  "auto_install_extensions": {
+    "vue": true,
+    "html": true,
+    "toml": true,
+    "csharp": true,
+    "material-icon-theme": true,
+    "xml": true,
+    "zig": true,
+    "nix": true,
+    "kdl": true,
+    "markdown-oxide": true,
+  },
+
   // VIM
   "vim_mode": true,
   "relative_line_numbers": "enabled",
