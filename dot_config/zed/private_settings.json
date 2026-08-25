@@ -7,15 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "diff_view_style": "split",
+  "which_key": {
+    "delay_ms": 500,
+    "enabled": true,
+  },
   "cli_default_open_behavior": "existing_window",
   "collaboration_panel": {
     "dock": "right",
   },
   "agent": {
+    "play_sound_when_agent_done": "always",
     "default_model": {
       "provider": "google",
       "model": "gemini-2.5-flash",
-      "enable_thinking": true
+      "enable_thinking": true,
     },
     "dock": "left",
     "favorite_models": [],
@@ -25,16 +34,13 @@
     "dock": "right",
   },
   "context_servers": {
-    "linear": {
-      "enabled": true,
-      "remote": false,
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
-      "env": {},
     },
-  },
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "model": "default",
+        "mode": "acceptEdits",
+      },
       "type": "registry",
     },
   },
@@ -88,7 +94,11 @@
   "autoscroll_on_clicks": false,
   "colorize_brackets": true,
   "format_on_save": "off",
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
   "ui_font_size": 16,
   "buffer_font_size": 13.0,
 
@@ -104,15 +114,47 @@
   },
   "code_actions_on_format": {
     "source.organizeImports": true,
-  },  
+  },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "Ayu Dark",
   },
   "dap": {
     "CodeLLDB": {
       "binary": "/usr/bin/codelldb",
+    },
+    "netcoredbg": {
+      "binary": "~/.local/bin/netcoredbg",
+    },
+  },
+  "lsp": {
+    "vue-language-server": {
+      "initialization_options": {
+        "typescript": {
+          "tsdk": "./node_modules/typescript/lib",
+        },
+      },
+    },
+  },
+  "languages": {
+    "Vue.js": {
+      "language_servers": [
+        "vue-language-server",
+        "typescript-language-server",
+        "...",
+      ],
+    },
+    "CSharp": {
+      "inlay_hints": {
+        "enabled": true,
+      },
+      "tab_size": 4,
+    },
+    "Zig": {
+      "inlay_hints": {
+        "enabled": true,
+      },
     },
   },
 

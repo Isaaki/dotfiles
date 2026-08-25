@@ -105,8 +105,8 @@ layout {
 // Programs
 spawn-at-startup "firefox"
 spawn-at-startup "flatpak" "run" "dev.zed.Zed"
-spawn-at-startup "flatpak" "run" "com.slack.Slack"
-spawn-at-startup "flatpak" "run" "com.github.IsmaelMartinez.teams_for_linux"
+spawn-at-startup "slack"
+// spawn-at-startup "flatpak" "run" "com.github.IsmaelMartinez.teams_for_linux"
 
 // Media
 spawn-at-startup "youtube-music"
@@ -163,6 +163,29 @@ window-rule {
   match title="^(R|r)aylib"
   exclude app-id="dev.zed.Zed"
   open-floating true
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+  match is-window-cast-target=true
+
+  focus-ring {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+
+  border {
+    inactive-color "#7d0d2d"
+  }
+
+  shadow {
+    color "#7d0d2d70"
+  }
+
+  tab-indicator {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
 }
 
 binds {
@@ -354,6 +377,10 @@ binds {
   // rather than stacked on top of each other.
   Mod+W { toggle-column-tabbed-display; }
 
+  // Dynamic screencast
+  Mod+Alt+W hotkey-overlay-title="Cast focused window" { set-dynamic-cast-window; }
+  Mod+Alt+M hotkey-overlay-title="Cast focused monitor" { set-dynamic-cast-monitor; }
+  Mod+Alt+C hotkey-overlay-title="Clear cast target" { clear-dynamic-cast-target; }
 
   Print hotkey-overlay-title="screenshot" { spawn-sh "~/.scripts/screenshot.sh"; }
   Shift+Print hotkey-overlay-title="screenshot (same area)" { spawn-sh "~/.scripts/screenshot-same.sh"; }
@@ -365,11 +392,6 @@ binds {
   // The quit action will show a confirmation dialog to avoid accidental exits.
   Mod+Shift+E { quit; }
   Ctrl+Alt+Delete { quit; }
-
-  // Powers off the monitors. To turn them back on, do any input like
-  // moving the mouse or pressing any other key.
-  Mod+Shift+P { power-off-monitors; }
-
 
   // Plexamp media shortcuts
   Mod+Ctrl+Alt+Left { spawn-sh "playerctl --player=Plexamp play-pause"; }

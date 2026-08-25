@@ -25,6 +25,8 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
+      "ctrl-/": "text_finder::Toggle",
+
       "ctrl-h": "vim::FirstNonWhitespace",
       "ctrl-l": "vim::EndOfLine",
 
@@ -32,6 +34,7 @@
       "ctrl-k": "vim::SelectPrevious",
 
       "space o p": "projects::OpenRecent",
+      "space o w": "git::Worktree",
 
       "space e": "project_panel::ToggleFocus",
       "space o e": "workspace::ToggleRightDock",
@@ -64,8 +67,7 @@
       "space k": "editor::Hover",
       "space r": "editor::Rename",
       "space w": "workspace::Save",
-      "space s": "outline::Toggle",
-      "space shift-s": "project_symbols::Toggle",
+      "space b": "git::Blame",
 
       "space d h": "editor::GoToPreviousDiagnostic",
       "space d l": "editor::GoToDiagnostic",
@@ -75,6 +77,9 @@
       "space o r": "editor::FindAllReferences",
       "space o i": "editor::GoToImplementation",
       "space o a": "editor::ToggleCodeActions",
+
+      "space n": "editor::GoToHunk",
+      "space shift-n": "editor::GoToPreviousHunk",
 
       "shift-y": ["workspace::SendKeystrokes", "y $"],
     },

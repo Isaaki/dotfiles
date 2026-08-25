@@ -4,3 +4,17 @@ customCommands:
     command: "git diff-tree --name-only -r --no-commit-id {{.SelectedLocalCommit.Sha}} | xargs zed"
     context: "commits"
     output: terminal
+  - key: "E"
+    description: "Edit (GUI)"
+    command: "zed {{.SelectedFile.Name}}"
+    context: "files"
+    output: none
+  - key: "E"
+    description: "Edit (GUI)"
+    command: "zed {{.SelectedCommitFile.Name}}"
+    context: "commitFiles"
+    output: none
+keybinding:
+  universal:
+    nextTab: [']', '<a-l>']
+    prevTab: ['[', '<a-h>']
