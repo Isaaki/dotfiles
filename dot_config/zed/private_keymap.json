@@ -9,7 +9,12 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-t": "task::Spawn",
+      "alt-t": [
+        "task::Spawn",
+        {
+          "reveal": null
+        }
+      ],
       "ctrl-alt-t": "task::Rerun",
 
       "alt-h": "pane::ActivatePreviousItem",
@@ -132,4 +137,10 @@
       "alt-l": null, // Remove from Git "Generate Commit Message"
     },
   },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "alt-t": "task::Rerun"
+    }
+  }
 ]

@@ -43,6 +43,9 @@
       },
       "type": "registry",
     },
+    "claude-acp": {
+      "type": "registry",
+    },
   },
   "tab_size": 2,
   "vertical_scroll_margin": 14.0,
@@ -154,6 +157,40 @@
     "Zig": {
       "inlay_hints": {
         "enabled": true,
+      },
+    },
+  },
+  "languages": {
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+      },
+    },
+    "Zig": {
+      "code_actions_on_format": {
+        "source.fixAll": true,
+        "source.organizeImports": true,
+      },
+      "tab_size": 4,
+    },
+  },
+
+  "load_direnv": "shell_hook",
+
+  "terminal": {
+    "env": {
+      "DIRENV_LOG_FORMAT": "",
+    },
+  },
+
+  "lsp": {
+    "zls": {
+      "settings": {
+        "path_lookup": true,
+      },
+      "initialization_options": {
+        "enable_build_on_save": true,
+        "build_on_save_step": "check",
       },
     },
   },

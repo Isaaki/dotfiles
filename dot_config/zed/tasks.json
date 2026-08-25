@@ -43,17 +43,22 @@
     //           "args": ["--login"]
     //         }
     //     }
-    "shell": "system"
+    "shell": "system",
     // Represents the tags for inline runnable indicators, or spawning multiple tasks at once.
     // "tags": []
   },
   {
     "label": "exercism: submit file",
-    "command": "cd $ZED_DIRNAME && exercism submit"
+    "command": "cd $ZED_DIRNAME && exercism submit",
   },
   {
     "label": "exercism: zig test",
     "reveal": "no_focus",
-    "command": "zig test $ZED_DIRNAME/test_$ZED_FILENAME"
-  }
+    "command": "zig test $ZED_DIRNAME/test_$ZED_FILENAME",
+  },
+  {
+    "label": "zig build run",
+    "command": "zig build run",
+    "reveal": "no_focus",
+  },
 ]

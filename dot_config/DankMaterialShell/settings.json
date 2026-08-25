@@ -1,7 +1,7 @@
 {
   "currentThemeName": "custom",
   "currentThemeCategory": "registry",
-  "customThemeFile": "/home/isak/.config/DankMaterialShell/themes/tokyoNightNightMoon/theme.json",
+  "customThemeFile": "/home/isaaki/.config/DankMaterialShell/themes/catppuccin/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
       "light": {
@@ -175,6 +175,11 @@
     },
     {
       "id": "idleInhibitor",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "builtin_vpn",
       "enabled": true,
       "width": 50
     }
@@ -630,10 +635,7 @@
       "enabled": true,
       "position": 0,
       "screenPreferences": [
-        {
-          "name": "DP-4",
-          "model": "LG ULTRAGEAR"
-        }
+        "all"
       ],
       "showOnLastDisplay": true,
       "leftWidgets": [
@@ -653,10 +655,6 @@
           "clockCompactMode": false
         },
         "weather",
-        {
-          "id": "dankPomodoroTimer",
-          "enabled": true
-        },
         {
           "id": "battery",
           "enabled": true
