@@ -1,0 +1,6 @@
+customCommands:
+  - key: "O"
+    description: "Open files changed in commit in editor"
+    command: "git diff-tree --name-only -r --no-commit-id {{.SelectedLocalCommit.Sha}} | xargs zed"
+    context: "commits"
+    output: terminal
