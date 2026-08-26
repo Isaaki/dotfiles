@@ -1,0 +1,4 @@
+binds {
+    Mod+D hotkey-overlay-title="App Launcher: Toggle" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Super+Ctrl+V hotkey-overlay-title="Clipboard: Toggle" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+}
