@@ -60,4 +60,4 @@ set -gx PATH $PATH /home/isaaki/.lmstudio/bin
 # End of LM Studio CLI section
 
 # Mise activation
-# /home/isak/.local/bin/mise activate fish | source # added by https://mise.run/fish
+mise activate fish | source # added by https://mise.run/fish
