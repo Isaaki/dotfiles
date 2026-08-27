@@ -1,7 +1,7 @@
 {
   "currentThemeName": "custom",
   "currentThemeCategory": "registry",
-  "customThemeFile": "/home/isaaki/.config/DankMaterialShell/themes/catppuccin/theme.json",
+  "customThemeFile": "/home/isak/.config/DankMaterialShell/themes/catppuccin/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
       "light": {
@@ -9,8 +9,8 @@
         "accent": "blue"
       },
       "dark": {
-        "flavor": "frappe",
-        "accent": "sapphire"
+        "flavor": "mocha",
+        "accent": "blue"
       }
     },
     "amoledBlack": {
