@@ -12,8 +12,8 @@
       "alt-t": [
         "task::Spawn",
         {
-          "reveal": null
-        }
+          "reveal": null,
+        },
       ],
       "ctrl-alt-t": "task::Rerun",
 
@@ -87,6 +87,7 @@
 
       "space n": "editor::GoToHunk",
       "space shift-n": "editor::GoToPreviousHunk",
+      "space shift-p": "pane::TogglePinTab",
 
       "shift-y": ["workspace::SendKeystrokes", "y $"],
     },
@@ -140,7 +141,7 @@
   {
     "context": "Workspace",
     "unbind": {
-      "alt-t": "task::Rerun"
-    }
-  }
+      "alt-t": "task::Rerun",
+    },
+  },
 ]
