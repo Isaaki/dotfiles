@@ -59,5 +59,7 @@ end
 set -gx PATH $PATH /home/isaaki/.lmstudio/bin
 # End of LM Studio CLI section
 
+set -gx DOTNET_ROOT $HOME/.dotnet
+
 # Mise activation
 mise activate fish | source # added by https://mise.run/fish

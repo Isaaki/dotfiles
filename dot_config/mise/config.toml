@@ -1,2 +1,3 @@
 [tools]
+aspire = "latest"
 node = "26"
