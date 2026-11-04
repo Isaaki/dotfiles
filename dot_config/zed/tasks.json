@@ -61,4 +61,18 @@
     "command": "zig build run",
     "reveal": "no_focus",
   },
+  {
+    "label": "lazygit: follow",
+    "command": "lazygit-follow-switch \"$ZED_DIRNAME\" \"$ZED_WORKTREE_ROOT\"",
+    "reveal": "never",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+  },
+  {
+    "label": "lazygit: follow project",
+    "command": "lazygit-follow-switch \"$ZED_WORKTREE_ROOT\"",
+    "reveal": "never",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+  },
 ]

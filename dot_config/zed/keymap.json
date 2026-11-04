@@ -44,7 +44,6 @@
       "space e": "project_panel::ToggleFocus",
       "space o e": "workspace::ToggleRightDock",
 
-      "space h": "agent::ToggleFocus",
       "space o h": "workspace::ToggleLeftDock",
     },
   },
@@ -84,6 +83,11 @@
       "space o r": "editor::FindAllReferences",
       "space o i": "editor::GoToImplementation",
       "space o a": "editor::ToggleCodeActions",
+      "space o y": "editor::CopyFileName",
+      "space o shift-y": "editor::CopyFileNameWithoutExtension",
+
+      "space o g": ["task::Spawn", { "task_name": "lazygit: follow" }],
+      "space o shift-g": ["task::Spawn", { "task_name": "lazygit: follow project" }],
 
       "space n": "editor::GoToHunk",
       "space shift-n": "editor::GoToPreviousHunk",
@@ -115,7 +119,6 @@
       "space e": "project_panel::ToggleFocus",
       "space o e": "workspace::ToggleRightDock",
 
-      "space h": "agent::ToggleFocus",
       "space o h": "workspace::ToggleLeftDock",
     },
   },

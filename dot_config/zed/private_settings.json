@@ -20,6 +20,11 @@
     "dock": "right",
   },
   "agent": {
+    "terminal_init_command": "claude",
+    "show_turn_stats": false,
+    "message_editor_min_lines": 4,
+    "thinking_display": "always_expanded",
+    "single_file_review": true,
     "play_sound_when_agent_done": "always",
     "default_model": {
       "provider": "google",
@@ -37,7 +42,7 @@
     "claude-acp": {
       "default_config_options": {
         "model": "default",
-        "mode": "acceptEdits",
+        "mode": "auto",
       },
       "type": "registry",
     },
@@ -99,6 +104,7 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 13.0,
+  "buffer_font_weight": 500,
 
   "buffer_font_family": "ComicCode Nerd Font",
   "buffer_font_fallbacks": [
@@ -110,13 +116,30 @@
   "preview_tabs": {
     "enabled": true,
   },
-  "code_actions_on_format": {
-    "source.organizeImports": true,
-  },
   "theme": {
-    "mode": "dark",
-    "light": "One Light",
+    "mode": "light",
+    "light": "Ayu Light",
     "dark": "Ayu Dark",
+  },
+  "theme_overrides": {
+    "Ayu Light": {
+      "editor.foreground": "#33383d",
+      "syntax": {
+        "variable": { "color": "#33383d" },
+        "punctuation": { "color": "#5a5f65" },
+        "keyword":  { "color": "#e8700f" },
+        "function": { "color": "#d98a00" },
+        "string":   { "color": "#6c9a00" },
+        "number":   { "color": "#8e52cc" },
+        "boolean":  { "color": "#8e52cc" },
+        "constant": { "color": "#8e52cc" },
+        "type":     { "color": "#1f88d6" },
+        "property": { "color": "#2a8bd0" },
+        "tag":      { "color": "#2aa0c4" },
+        "operator": { "color": "#e07a3a" },
+        "comment":  { "color": "#959aa0", "font_style": "italic" }
+      }
+    }
   },
   "dap": {
     "CodeLLDB": {
@@ -130,7 +153,9 @@
     "TypeScript": {
       "code_actions_on_format": {
         "source.organizeImports": true,
+        "source.addMissingImports": true,
       },
+      "language_servers": ["vtsls", "!typescript-language-server", "..."],
     },
     "Zig": {
       "inlay_hints": {
@@ -145,15 +170,26 @@
     "Vue.js": {
       "language_servers": [
         "vue-language-server",
-        "typescript-language-server",
+        "vtsls",
+        "!typescript-language-server",
         "...",
       ],
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.addMissingImports": true,
+      },
     },
     "CSharp": {
       "inlay_hints": {
         "enabled": true,
       },
       "tab_size": 4,
+    },
+    "TSX": {
+      "language_servers": ["vtsls", "!typescript-language-server", "..."],
+    },
+    "JavaScript": {
+      "language_servers": ["vtsls", "!typescript-language-server", "..."],
     },
   },
 
@@ -181,6 +217,12 @@
         "enable_build_on_save": true,
         "build_on_save_step": "check",
       },
+    },
+  },
+
+  "context_servers": {
+    "linear": {
+      "url": "https://mcp.linear.app/mcp",
     },
   },
 
